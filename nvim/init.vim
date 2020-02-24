@@ -4,11 +4,10 @@
 "" @tuxsisir
 
 set encoding=utf-8
-
 let mapleader=";"
 set nocompatible                  " iMprove vim with no vi
 
-" Paths check
+" Paths
 
 " brew install ctags-exuberant
 let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
@@ -36,28 +35,19 @@ endif
 "" Interface
 " Colorschemes
 Plug 'mhartington/oceanic-next'
-Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'lifepillar/vim-solarized8'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 Plug 'mhinz/vim-startify'
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
-Plug 'ervandew/supertab'
 
 "" GIT / GISTHUB
 Plug 'tpope/vim-fugitive'
@@ -93,6 +83,11 @@ Plug 'honza/vim-snippets'
 
 " vim auto format
 Plug 'Chiel92/vim-autoformat'
+
+Plug 'vimwiki/vimwiki'
+
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 
 call plug#end()
 
@@ -161,10 +156,12 @@ set cursorline
 set mouse=a
 set visualbell
 
-" autosave
+" conceal level
+set concealcursor=v
+set conceallevel=2
 
-" autocmd CursorHold,CursorHoldI * update
-" autocmd BufWritePre * %s/\s\+$//e
+let g:indentLine_concealcursor = 'v'
+let g:indentLine_conceallevel = 2
 
 " map leaders
 noremap <Leader>s :w<CR>
@@ -183,7 +180,7 @@ nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
 
 " -----
 
-set undolevels=1000	          " number of undo levels
+set undolevels=1000               " number of undo levels
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -231,52 +228,48 @@ nnoremap <F5> :call ToggleBackground()<CR>
 
 " -- Color Scheme
 "
-set ruler	                 " Show row and column ruler information
+set ruler                        " Show row and column ruler information
 let &colorcolumn="80"
 
 "For oceanic next
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
-highlight ColorColumn ctermbg=254
+highlight ColorColumn ctermbg=250
 highlight Comment cterm=italic gui=italic
 highlight Normal guibg=NONE ctermbg=NONE
 highlight Comment cterm=italic gui=italic
 
-" AIRLINE --
+" LIGHTLINE
+set showtabline=2
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ 'mode_map': {
+            \ 'n' : 'N',
+            \ 'i' : 'I',
+            \ 'R' : 'R',
+            \ 'v' : 'V',
+            \ 'V' : 'VL',
+            \ "\<C-v>": 'VB',
+            \ 'c' : 'C',
+            \ 's' : 'S',
+            \ 'S' : 'SL',
+            \ "\<C-s>": 'SB',
+            \ 't': 'T',
+            \ },
+            \ }
+let g:lightline.active = {
+            \ 'left': [ [ 'mode', 'paste' ],
+            \           [ 'readonly', 'absolutepath', 'modified' ] ] }
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline#bufferline#filename_modifier = ':t'
+let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#modified = '~'
 
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_theme='oceanicnext'
-
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
-" airline symbols
-" let g:airline_left_sep = "\ue0c7"
-" let g:airline_left_alt_sep = "\ue0c6"
-" let g:airline_right_sep = "\ue0c7"
-" let g:airline_right_alt_sep = " \ue0c6 "
-let g:airline_symbols.branch = "\ue0a0"
-let g:airline_symbols.readonly = "\ue0a2"
-let g:airline_symbols.linenr = "\ue0a1"
-
-
-" COC
-
-" if you want to disable auto detect, comment out those two lines
-
-" let g:airline#extensions#disable_rtp_load = 1
-" let g:airline_extensions = ['branch', 'hunks', 'coc']
-
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
-
-" -- VIM AIRLINE
+" -- LIGHTLINE
 
 " VIM Startify --
 let s:startify_ascii_header = [
@@ -326,10 +319,10 @@ let g:ale_linters = {
             \ }
 
 let g:ale_fixers = {
-\  'python': ['autopep8', 'yapf'],
-\  'javascript': ['eslint'],
-\  'vue': ['eslint']
-\}
+            \  'python': ['autopep8', 'yapf'],
+            \  'javascript': ['eslint'],
+            \  'vue': ['eslint']
+            \}
 
 let g:ale_javascript_eslint_executable = 'eslint'
 
@@ -377,7 +370,7 @@ nmap <C-h>   :bp<CR>
 
 " COC
 
- " if hidden is not set, TextEdit might fail.
+" if hidden is not set, TextEdit might fail.
 set hidden
 
 " Some server have issues with backup files, see #649
@@ -399,14 +392,14 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 "inoremap <silent><expr> <TAB>
-      "\ pumvisible() ? "\<C-n>" :
-      "\ <SID>check_back_space() ? "\<TAB>" :
-      "\ coc#refresh()
+            "\ pumvisible() ? "\<C-n>" :
+            "\ <SID>check_back_space() ? "\<TAB>" :
+            "\ coc#refresh()
 "inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> for trigger completion.
@@ -430,11 +423,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if &filetype == 'vim'
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
@@ -448,11 +441,11 @@ vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -520,9 +513,9 @@ let g:closetag_emptyTags_caseSensitive = 1
 " Disables auto-close if not in a "valid" region (based on filetype)
 "
 let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
+            \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+            \ 'javascript.jsx': 'jsxRegion',
+            \ }
 
 " Shortcut for closing tags, default is '>'
 "

@@ -34,7 +34,6 @@ endif
 
 "" Interface
 " Colorschemes
-Plug 'mhartington/oceanic-next'
 Plug 'drewtempelmeyer/palenight.vim'
 
 Plug 'scrooloose/nerdtree'
@@ -78,7 +77,7 @@ Plug 'baverman/vial-http'
 Plug 'tpope/vim-dadbod'
 
 " Ulti Snippets
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " vim auto format
@@ -88,6 +87,8 @@ Plug 'vimwiki/vimwiki'
 
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
+" Plug 'neomake/neomake'
+Plug 'vim-scripts/matchit.zip'
 
 call plug#end()
 

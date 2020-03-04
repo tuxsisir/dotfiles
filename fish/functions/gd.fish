@@ -1,17 +1,17 @@
 function gd
     switch $argv
-        case irhrs
-            cd ~/projects/irhrs/
-        case projects
-            cd ~/projects/
-        case irhrs-vue
-            cd ~/projects/irhrs/real-hr-soft-frontend/
-        case irhrs-nuxt
-            cd ~/projects/irhrs/frontend/
+        case docker
+            cd ~/projects/docker/
+        case wiki
+            cd ~/vimwiki/
         case nvim
             cd ~/.config/nvim/
         case fish
             cd ~/.config/fish/functions
+        case dots
+            cd ~/mydots/
+        case fuse
+            cd ~/projects/fuse-machines/
         case "*"
             echo "GOTCHA!"
     end

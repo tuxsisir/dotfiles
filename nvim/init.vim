@@ -357,8 +357,8 @@ let g:ale_fixers = {
 let g:ale_javascript_eslint_executable = 'eslint'
 
 " Change error symbols
-let g:ale_sign_error = '=>'
-let g:ale_sign_warning = '->'
+let g:ale_sign_error = "\u2717"
+let g:ale_sign_warning = "\u26A0"
 
 let g:ale_open_list = 0
 

@@ -12,6 +12,8 @@ function gd
             cd ~/mydots/
         case fuse
             cd ~/projects/fuse-machines/
+        case codehub
+            cd ~/projects/fuse-machines/fuse-jupyterhub
         case "*"
             echo "GOTCHA!"
     end

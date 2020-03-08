@@ -1,0 +1,30 @@
+session_name: codehub
+
+windows:
+- window_name: vimwiki
+  layout: even-horizontal
+  shell_command_before:
+    - cd ~/                                     # run as a first command in all panes
+  panes:
+    - shell_command:                            # pane no. 1
+        - vf activate fuse-jupyterhub
+        - gd codehub                            # run multiple commands in this pane
+- window_name: code
+  layout: even-vertical
+  shell_command_before:
+    - cd ~/                                     # run as a first command in all panes
+  panes:
+    - shell_command:                            # pane no. 1
+        - vf activate fuse-jupyterhub
+        - gd codehub                            # run multiple commands in this pane
+- window_name: docker
+  layout: even-horizontal
+  shell_command_before:
+    - cd ~/                                     # run as a first command in all panes
+  panes:
+    - shell_command:                            # pane no. 1
+        - vf activate fuse-jupyterhub           # run multiple commands in this pane
+        - gd codehub                            # run multiple commands in this pane
+    - shell_command:                            # pane no. 2
+        - vf activate fuse-jupyterhub           # run multiple commands in this pane
+        - gd codehub                            # run multiple commands in this pane

@@ -198,7 +198,7 @@ let g:NERDTreeWinPos = "left"
 map <C-S-n> :NERDTreeToggle<CR>
 
 " ignore certain files/folders
-set wildignore+=*.pyc,node_modules,__pycache__
+set wildignore+=*.pyc,node_modules,__pycache__,*DS_Store
 let NERDTreeRespectWildIgnore=1
 
 " -- NERD-Tree

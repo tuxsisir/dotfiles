@@ -35,6 +35,7 @@ endif
 "" Interface
 " Colorschemes
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -193,6 +194,7 @@ set backspace=indent,eol,start
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinPos = "left"
+let g:NERDTreeWinSize=60
 " let NERDTreeDirArrows = 1
 
 map <C-S-n> :NERDTreeToggle<CR>
@@ -213,22 +215,23 @@ set updatetime=100
 
 " Color Scheme --
 set background=dark
-colorscheme palenight
+colorscheme dracula
 
-function! ToggleBackground()
-    if &background=="dark"
-        set background=light
-        colorscheme solarized8_flat
-    else
-        set background=dark
-        colorscheme OceanicNext
-    endif
-endfunction
+" function! ToggleBackground()
+    " if &background=="dark"
+        " set background=light
+        " colorscheme solarized8_flat
+    " else
+        " set background=dark
+        " colorscheme OceanicNext
+    " endif
+" endfunction
 
-nnoremap <F5> :call ToggleBackground()<CR>
+" nnoremap <F5> :call ToggleBackground()<CR>
 
 " -- Color Scheme
 "
+syntax on
 set ruler                        " Show row and column ruler information
 let &colorcolumn="80"
 
@@ -236,7 +239,7 @@ let &colorcolumn="80"
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
-highlight ColorColumn ctermbg=250
+highlight ColorColumn ctermbg=13 guibg=MediumPurple4
 highlight Comment cterm=italic gui=italic
 highlight Normal guibg=NONE ctermbg=NONE
 highlight Comment cterm=italic gui=italic

@@ -11,6 +11,8 @@ set nocompatible                  " iMprove vim with no vi
 
 " brew install ctags-exuberant
 let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
+
+let g:python_host_prog = '/usr/bin/python'
 let g:python2_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
@@ -97,27 +99,15 @@ call plug#end()
 
 " General --
 
-" enable syntax highlighting
-syntax enable
 
-" show line numbers and relative number
-set number
+syntax enable                           " enable syntax highlighting
+set number                              " show line numbers and relative number
 " set relativenumber
-
-" break lines
-set linebreak
-
-" wrapped line prefix
-set showbreak=+++
-
-" line wrap (number of cols)
-set textwidth=100
-
-" highlight braces
-set showmatch
-
-" spell check
-" set spell
+set linebreak                           " break lines
+set showbreak=+++                       " wrapped line prefix
+set textwidth=100                       " line wrap (number of cols)
+set showmatch                           " highlight braces
+" set spell                             " spell check
 
 " search options
 set hlsearch
@@ -131,12 +121,12 @@ autocmd BufWritePre *.* %s/\s\+$//e
 autocmd BufRead,BufNewFile *.vue setfiletype vue
 
 filetype plugin indent on
-set autoindent                    " auto-indent new lines
-set expandtab                     " use spaces instead of tabs
-set shiftwidth=4                  " number of auto-indent spaces
-set smartindent                   " enable smart indent
-set smarttab                      " enable smart tabs
-set softtabstop=4                 " number of spaces per tab
+set autoindent                          " auto-indent new lines
+set expandtab                           " use spaces instead of tabs
+set shiftwidth=4                        " number of auto-indent spaces
+set smartindent                         " enable smart indent
+set smarttab                            " enable smart tabs
+set softtabstop=4                       " number of spaces per tab
 
 " copy and paste to os clipboard
 

@@ -1,7 +1,7 @@
 function push
     switch $argv
         case wiki
-            cd ~/projects/vimwiki/
+            cd ~/vimwiki/
             git status
             git add .
             git commit -m "Update wiki"

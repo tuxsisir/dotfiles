@@ -100,7 +100,6 @@ call plug#end()
 " General --
 
 
-syntax enable                           " enable syntax highlighting
 set number                              " show line numbers and relative number
 " set relativenumber
 set linebreak                           " break lines
@@ -115,7 +114,7 @@ set ignorecase
 set smartcase
 set incsearch
 
-autocmd BufWritePre *.* %s/\s\+$//e
+autocmd BufWritePre * %s/\s\+$//e       " trim white spaces on save
 
 " Indentation
 autocmd BufRead,BufNewFile *.vue setfiletype vue
@@ -157,7 +156,7 @@ let g:indentLine_conceallevel = 2
 
 " map leaders
 noremap <Leader>s :w<CR>
-noremap <Leader>bd :bd<CR>
+" noremap <Leader>bd :bd<CR>
 noremap <Leader>bda :bufdo bd<CR>
 noremap <Leader>n :noh<CR>
 noremap <Leader>r :so %<CR>
@@ -167,6 +166,8 @@ noremap <F4> :FZF<CR>
 
 noremap <Leader>gfd :Gvdiffsplit<CR>
 nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
+
+nnoremap <Leader>bd :bn<cr>:bd<cr>
 
 " -- General
 
@@ -184,7 +185,7 @@ set backspace=indent,eol,start
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinPos = "left"
-let g:NERDTreeWinSize=60
+let g:NERDTreeWinSize=80
 " let NERDTreeDirArrows = 1
 
 map <C-S-n> :NERDTreeToggle<CR>
@@ -323,10 +324,17 @@ let g:startify_custom_header = map(s:startify_ascii_header +
 
 " -- fzf
 
-nmap <C-p> :GFiles<CR>
+nmap <C-p> :Files<CR>
 nmap <C-s> :Ag<CR>
 
 " fzf --
+
+" gitgutter
+
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
+" - gitgutter
 
 " -- filetype plugin
 
@@ -587,3 +595,15 @@ set re=1
 " blamer.nvim
 " let g:blamer_enabled = 1
 let g:blamer_delay = 500
+
+" Start both startify and nerdtree on entering vim
+autocmd VimEnter *
+            \   if !argc()
+            \ |   Startify
+            \ |   NERDTree
+            \ |   wincmd w
+            \ | endif
+
+" vim polyglot disable
+let g:polyglot_disabled = ['css', 'yaml', 'yml']
+

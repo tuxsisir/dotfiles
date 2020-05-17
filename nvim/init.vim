@@ -8,7 +8,6 @@ let mapleader=";"
 set nocompatible                  " iMprove vim with no vi
 
 " Paths
-
 " brew install ctags-exuberant
 let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
@@ -16,169 +15,27 @@ let g:python_host_prog = '/usr/bin/python'
 let g:python2_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
-"" FONTS / Interface
-
 set termguicolors
-if has("gui_running")
-    set guifont=FuraMono\ Nerd\ Font\ 9
-endif
 
 " make swapfiles be kept in a central location to avoid polluting file system
 set directory^=$HOME/.vim/swapfiles//
 
-"" VIM PLUG --
+" VIM PLUG --
+source $HOME/mydots/nvim/plugins.vim
+" --
 
-if has('nvim')
-    call plug#begin('~/.config/nvim/bundle')
-else
-    call plug#begin('~/.vim/bundle')
-endif
+" General
+source $HOME/mydots/nvim/general.vim
+" --
 
-"" Interface
-" Colorschemes
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'preservim/nerdcommenter'
-
-Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
-Plug 'alvan/vim-closetag'
-
-Plug 'mhinz/vim-startify'
-Plug 'majutsushi/tagbar'
-Plug 'w0rp/ale'
-
-"" GIT / GISTHUB
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'mattn/gist-vim'
-Plug 'mattn/webapi-vim'
-Plug 'zivyangll/git-blame.vim'
-Plug 'APZelos/blamer.nvim'
-
-"" fuzzy
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-" Languages
-Plug 'sheerun/vim-polyglot'
-Plug 'posva/vim-vue'
-
-" COC
-" note: don't remove coc and work on auto indent
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'liuchengxu/vista.vim'
-
-" REST
-" Plug 'diepm/vim-rest-console'
-Plug 'baverman/vial'
-Plug 'baverman/vial-http'
-
-Plug 'tpope/vim-dadbod'
-
-" Ulti Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" vim auto format
-Plug 'Chiel92/vim-autoformat'
-
-Plug 'vimwiki/vimwiki'
-
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
-" Plug 'neomake/neomake'
-Plug 'vim-scripts/matchit.zip'
-
-call plug#end()
-
-"" -- VIM PLUG
-
-" General --
-
-
-set number                              " show line numbers and relative number
-" set relativenumber
-set linebreak                           " break lines
-set showbreak=+++                       " wrapped line prefix
-set textwidth=100                       " line wrap (number of cols)
-set showmatch                           " highlight braces
-" set spell                             " spell check
-
-" search options
-set hlsearch
-set ignorecase
-set smartcase
-set incsearch
-
-autocmd BufWritePre * %s/\s\+$//e       " trim white spaces on save
-
-" Indentation
-autocmd BufRead,BufNewFile *.vue setfiletype vue
-
-filetype plugin indent on
-set autoindent                          " auto-indent new lines
-set expandtab                           " use spaces instead of tabs
-set shiftwidth=4                        " number of auto-indent spaces
-set smartindent                         " enable smart indent
-set smarttab                            " enable smart tabs
-set softtabstop=4                       " number of spaces per tab
-
-" copy and paste to os clipboard
-
-set clipboard+=unnamedplus
-" set paste
-" set go+=a
-
-"" use unix as the standard file type
-set ffs=unix,dos,mac
-
-set foldmethod=syntax
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
-
-" cursorline
-set cursorline
-
-set mouse=a
-set visualbell
-
-" conceal level
-set concealcursor=v
-set conceallevel=2
-
-let g:indentLine_concealcursor = 'v'
+let g:indentLine_concealcursor = 'nvic'
 let g:indentLine_conceallevel = 2
 
-" map leaders
-noremap <Leader>s :w<CR>
-" noremap <Leader>bd :bd<CR>
-noremap <Leader>bda :bufdo bd<CR>
-noremap <Leader>n :noh<CR>
-noremap <Leader>r :so %<CR>
-noremap <Leader>e :syntax sync minlines=10000<CR>
-noremap <F3> :Autoformat<CR>
-noremap <F4> :FZF<CR>
-
-noremap <Leader>gfd :Gvdiffsplit<CR>
-nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
-
-nnoremap <Leader>bd :bn<cr>:bd<cr>
-
-" -- General
-
 " -----
 
-set undolevels=1000               " number of undo levels
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-" -----
+"" Keymaps --
+source $HOME/mydots/nvim/keymaps.vim
+"" -- keymaps
 
 " NERD-Tree --
 
@@ -188,7 +45,6 @@ let g:NERDTreeWinPos = "left"
 let g:NERDTreeWinSize=80
 " let NERDTreeDirArrows = 1
 
-map <C-S-n> :NERDTreeToggle<CR>
 
 " ignore certain files/folders
 set wildignore+=*.pyc,node_modules,__pycache__,*DS_Store
@@ -226,9 +82,6 @@ syntax on
 set ruler                        " Show row and column ruler information
 let &colorcolumn="80"
 
-"For oceanic next
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
 
 highlight ColorColumn ctermbg=13 guibg=MediumPurple4
 highlight Comment cterm=italic gui=italic
@@ -236,154 +89,23 @@ highlight Normal guibg=NONE ctermbg=NONE
 highlight Comment cterm=italic gui=italic
 
 " LIGHTLINE
-set showtabline=2
-let g:lightline = {
-            \ 'colorscheme': 'wombat',
-            \ 'mode_map': {
-            \ 'n' : 'N',
-            \ 'i' : 'I',
-            \ 'R' : 'R',
-            \ 'v' : 'V',
-            \ 'V' : 'VL',
-            \ "\<C-v>": 'VB',
-            \ 'c' : 'C',
-            \ 's' : 'S',
-            \ 'S' : 'SL',
-            \ "\<C-s>": 'SB',
-            \ 't': 'T',
-            \ },
-            \ }
-let g:lightline.active = {
-            \ 'left': [ [ 'mode', 'paste' ],
-            \           [ 'readonly', 'absolutepath', 'modified' ] ] }
-
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
-let g:lightline#bufferline#filename_modifier = ':t'
-let g:lightline#bufferline#show_number = 1
-let g:lightline#bufferline#modified = '~'
-
+source $HOME/mydots/nvim/lightline.vim
 " -- LIGHTLINE
 
 " VIM Startify --
-let s:startify_ascii_header = [
-            \ '                                        ▟▙            ',
-            \ '                                        ▝▘            ',
-            \ '██▃▅▇█▆▖  ▗▟████▙▖   ▄████▄   ██▄  ▄██  ██  ▗▟█▆▄▄▆█▙▖',
-            \ '██▛▔ ▝██  ██▄▄▄▄██  ██▛▔▔▜██  ▝██  ██▘  ██  ██▛▜██▛▜██',
-            \ '██    ██  ██▀▀▀▀▀▘  ██▖  ▗██   ▜█▙▟█▛   ██  ██  ██  ██',
-            \ '██    ██  ▜█▙▄▄▄▟▊  ▀██▙▟██▀   ▝████▘   ██  ██  ██  ██',
-            \ '▀▀    ▀▀   ▝▀▀▀▀▀     ▀▀▀▀       ▀▀     ▀▀  ▀▀  ▀▀  ▀▀',
-            \ '',
-            \ ''
-            \ ]
-let s:startify_ascii_header = [
-            \' ▄████▄▓██   ██▓ ▄▄▄▄   ▓█████  ██▀███      ██▒   █▓ ██▓ ███▄ ▄███▓',
-            \'▒██▀ ▀█ ▒██  ██▒▓█████▄ ▓█   ▀ ▓██ ▒ ██▒   ▓██░   █▒▓██▒▓██▒▀█▀ ██▒',
-            \'▒▓█    ▄ ▒██ ██░▒██▒ ▄██▒███   ▓██ ░▄█ ▒    ▓██  █▒░▒██▒▓██    ▓██░',
-            \'▒▓▓▄ ▄██▒░ ▐██▓░▒██░█▀  ▒▓█  ▄ ▒██▀▀█▄       ▒██ █░░░██░▒██    ▒██ ',
-            \'▒ ▓███▀ ░░ ██▒▓░░▓█  ▀█▓░▒████▒░██▓ ▒██▒      ▒▀█░  ░██░▒██▒   ░██▒',
-            \'░ ░▒ ▒  ░ ██▒▒▒ ░▒▓███▀▒░░ ▒░ ░░ ▒▓ ░▒▓░      ░ ▐░  ░▓  ░ ▒░   ░  ░',
-            \'  ░  ▒  ▓██ ░▒░ ▒░▒   ░  ░ ░  ░  ░▒ ░ ▒░      ░ ░░   ▒ ░░  ░      ░',
-            \'░       ▒ ▒ ░░   ░    ░    ░     ░░   ░         ░░   ▒ ░░      ░   ',
-            \'░ ░     ░ ░      ░         ░  ░   ░              ░   ░         ░   ',
-            \'░       ░ ░           ░                         ░                  ',
-            \ '',
-            \ ''
-            \ ]
-let s:startify_ascii_header = [
-            \' ██████╗██╗   ██╗██████╗ ███████╗██████╗     ██╗   ██╗██╗███╗   ███╗',
-            \'██╔════╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗    ██║   ██║██║████╗ ████║',
-            \'██║      ╚████╔╝ ██████╔╝█████╗  ██████╔╝    ██║   ██║██║██╔████╔██║',
-            \'██║       ╚██╔╝  ██╔══██╗██╔══╝  ██╔══██╗    ╚██╗ ██╔╝██║██║╚██╔╝██║',
-            \'╚██████╗   ██║   ██████╔╝███████╗██║  ██║     ╚████╔╝ ██║██║ ╚═╝ ██║',
-            \' ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝      ╚═══╝  ╚═╝╚═╝     ╚═╝',
-            \'  ░  ▒  ▓▓▓ ░▒░ ▒░▒   ░  ░ ░  ░  ░▒ ░ ▒░      ░ ░░   ▒ ░░  ░      ░',
-            \'░       ▒ ▒ ░░   ░    ░    ░     ░░   ░         ░░   ▒ ░░      ░   ',
-            \'░ ░     ░ ░      ░         ░  ░   ░              ░   ░         ░   ',
-            \'░       ░ ░           ░                         ░                  ',
-            \ '',
-            \ ''
-            \ ]
-
-let g:startify_custom_header = map(s:startify_ascii_header +
-            \ startify#fortune#quote(), '"   ".v:val')
-
+source $HOME/mydots/nvim/startify.vim
 " -- VIM Startify
 
 
 
-
-" Indentation --
-
-" set list
-" set listchars=space:·,trail:.
-
-" -- Indentation
-
-" -- fzf
-
-nmap <C-p> :Files<CR>
-nmap <C-s> :Ag<CR>
-
-" fzf --
-
-" gitgutter
-
-nmap ]h <Plug>(GitGutterNextHunk)
-nmap [h <Plug>(GitGutterPrevHunk)
-
-" - gitgutter
-
 " -- filetype plugin
-
 filetype plugin indent on
-
 " filetype plugin --
-" ALE Asynchronous Lint Engine --
 
-let g:ale_linters = {
-            \   'javascript': ['eslint'],
-            \   'python': ['pylint', 'flake8'],
-            \   'scss': ['scsslint']
-            \ }
+" ALE / Lint --
+source $HOME/mydots/nvim/ale.vim
+" -- ALE / Lint
 
-let g:ale_fixers = {
-            \  'python': ['autopep8', 'yapf'],
-            \  'javascript': ['eslint'],
-            \  'vue': ['eslint']
-            \}
-
-let g:ale_javascript_eslint_executable = 'eslint'
-
-" Change error symbols
-let g:ale_sign_error = "\u2717"
-let g:ale_sign_warning = "\u26A0"
-
-let g:ale_open_list = 0
-
-" Check on file open
-let g:ale_lint_on_enter = 1
-
-" No check on file save
-let g:ale_lint_on_save = 1
-
-" Check on text change
-let g:ale_lint_on_text_changed = 0
-
-let g:ale_lint_delay = 100      " ms
-let g:ale_sign_column_always = 1
-
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-let g:ale_virtualenv_dir_names = ['.virtualenvs', 'virtualenvs']
-
-nmap <C-i> :ALEFix<CR>
-
-" -- ALE Asynchronous Lint Engine
 
 " Ulti Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -392,13 +114,53 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 " -- Ulti Snippets
 
-" Buffers
+" NERDCommenter
+let g:ft = ''
+fu! NERDCommenter_before()
+    if &ft == 'vue'
+        let g:ft = 'vue'
+        let stack = synstack(line('.'), col('.'))
+        if len(stack) > 0
+            let syn = synIDattr((stack)[0], 'name')
+            if len(syn) > 0
+                let syn = tolower(syn)
+                exe 'setf '.syn
+            endif
+        endif
+    endif
+endfu
+fu! NERDCommenter_after()
+    if g:ft == 'vue'
+        setf vue
+        let g:ft = ' '
+    endif
+endfu
 
-nmap <C-l>   :bn<CR>
-nmap <C-h>   :bp<CR>
+let g:NERDSpaceDelims = 1
+let g:NERDTreeWinPos = "right"
+" -- nerd commenter
 
-" -- Buffers
+set re=1
 
+" blamer.nvim
+" let g:blamer_enabled = 1
+let g:blamer_delay = 500
+
+" Start both startify and nerdtree on entering vim
+autocmd VimEnter *
+            \   if !argc()
+            \ |   Startify
+            \ |   NERDTree
+            \ |   wincmd w
+            \ | endif
+
+" vim polyglot disable
+let g:polyglot_disabled = ['css', 'yaml', 'yml']
+
+
+" ----------------------------------------------------------------------------
+" --------------------------- COC Configuration C/P -------------------------
+" ----------------------------------------------------------------------------
 " COC
 
 " if hidden is not set, TextEdit might fail.
@@ -512,9 +274,14 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" ----------------------------------------------------------------------------
 
-" VIM CLOSETAG
-"
+
+" ----------------------------------------------------------------------------
+" --------------------------- VIM CLOSETAG C/P -------------------------------
+" ----------------------------------------------------------------------------
+
+
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 "
@@ -557,53 +324,4 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 " -------------
-"
-" REMAPS
-map <F2> :Startify<CR>
-imap <A-BS> <C-W>
-
-set laststatus=2
-
-" NERDCommenter
-let g:ft = ''
-fu! NERDCommenter_before()
-    if &ft == 'vue'
-        let g:ft = 'vue'
-        let stack = synstack(line('.'), col('.'))
-        if len(stack) > 0
-            let syn = synIDattr((stack)[0], 'name')
-            if len(syn) > 0
-                let syn = tolower(syn)
-                exe 'setf '.syn
-            endif
-        endif
-    endif
-endfu
-fu! NERDCommenter_after()
-    if g:ft == 'vue'
-        setf vue
-        let g:ft = ' '
-    endif
-endfu
-
-let g:NERDSpaceDelims = 1
-let g:NERDTreeWinPos = "right"
-" -- nerd commenter
-
-set re=1
-
-" blamer.nvim
-" let g:blamer_enabled = 1
-let g:blamer_delay = 500
-
-" Start both startify and nerdtree on entering vim
-autocmd VimEnter *
-            \   if !argc()
-            \ |   Startify
-            \ |   NERDTree
-            \ |   wincmd w
-            \ | endif
-
-" vim polyglot disable
-let g:polyglot_disabled = ['css', 'yaml', 'yml']
 

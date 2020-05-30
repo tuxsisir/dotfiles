@@ -3,8 +3,6 @@ call plug#begin('~/.config/nvim/bundle')
 " General
 Plug 'drewtempelmeyer/palenight.vim'                " colorscheme
 Plug 'dracula/vim', { 'as': 'dracula' }             " colorscheme
-Plug 'scrooloose/nerdtree'                          " nerdtree
-Plug 'Xuyuanp/nerdtree-git-plugin'                  " nerdtree git plugin
 Plug 'preservim/nerdcommenter'                      " comment out
 Plug 'editorconfig/editorconfig-vim'
 

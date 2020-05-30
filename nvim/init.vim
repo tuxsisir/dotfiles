@@ -37,20 +37,6 @@ let g:indentLine_conceallevel = 2
 source $HOME/mydots/nvim/keymaps.vim
 "" -- keymaps
 
-" NERD-Tree --
-
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI = 1
-let g:NERDTreeWinPos = "left"
-let g:NERDTreeWinSize=80
-" let NERDTreeDirArrows = 1
-
-
-" ignore certain files/folders
-set wildignore+=*.pyc,node_modules,__pycache__,*DS_Store
-let NERDTreeRespectWildIgnore=1
-
-" -- NERD-Tree
 
 " GIT GUTTER
 " allow us to override the color
@@ -137,7 +123,6 @@ fu! NERDCommenter_after()
 endfu
 
 let g:NERDSpaceDelims = 1
-let g:NERDTreeWinPos = "right"
 " -- nerd commenter
 
 set re=1
@@ -145,14 +130,6 @@ set re=1
 " blamer.nvim
 " let g:blamer_enabled = 1
 let g:blamer_delay = 500
-
-" Start both startify and nerdtree on entering vim
-autocmd VimEnter *
-            \   if !argc()
-            \ |   Startify
-            \ |   NERDTree
-            \ |   wincmd w
-            \ | endif
 
 " vim polyglot disable
 let g:polyglot_disabled = ['css', 'yaml', 'yml']

@@ -12,7 +12,7 @@ noremap <Leader>gfd :Gvdiffsplit<CR>
 nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
 
 nnoremap <Leader>bd :bn<cr>:bd<cr>
-map <C-S-n> :NERDTreeToggle<CR>
+map <C-S-n> :Sexplore<CR>
 
 " -- fzf
 nmap <C-p> :Files<CR>

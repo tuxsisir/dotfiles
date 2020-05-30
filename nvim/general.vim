@@ -61,3 +61,7 @@ set backspace=indent,eol,start
 " set listchars=space:·,trail:.
 
 " -- Indentation
+"
+
+set wildignore+=*.pyc,node_modules,__pycache__,*DS_Store
+

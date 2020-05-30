@@ -35,8 +35,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'posva/vim-vue'
 
 " COC
-" note: don't remove coc and work on auto indent
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'liuchengxu/vista.vim'
 
 " REST

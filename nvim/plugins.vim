@@ -57,7 +57,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'vimwiki/vimwiki'
 
 Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+" Plug 'mengelbrecht/lightline-bufferline'
 " Plug 'neomake/neomake'
 Plug 'vim-scripts/matchit.zip'
 

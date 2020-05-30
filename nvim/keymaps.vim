@@ -13,6 +13,7 @@ nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
 
 nnoremap <Leader>bd :bn<cr>:bd<cr>
 map <C-S-n> :Sexplore<CR>
+map <C-S-a> :Buffers<CR>
 
 " -- fzf
 nmap <C-p> :Files<CR>

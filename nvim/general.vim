@@ -65,3 +65,4 @@ set backspace=indent,eol,start
 
 set wildignore+=*.pyc,node_modules,__pycache__,*DS_Store
 
+" set splitright

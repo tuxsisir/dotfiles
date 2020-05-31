@@ -46,6 +46,21 @@ let g:gitgutter_override_sign_column_highlight = 0
 set updatetime=100
 " --
 
+" Netrw
+let g:netrw_localrmdir = 'rm -rf'
+
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+
+" let g:netrw_winsize = 30
+let g:netrw_banner = 1
+
+let g:netrw_liststyle = 3
+
+
+" quickmenu
+noremap <silent><F9> :call quickmenu#toggle(0)<cr>
+
 " Color Scheme --
 set background=dark
 colorscheme dracula

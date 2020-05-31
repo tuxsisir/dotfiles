@@ -12,8 +12,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " good to have
-
-
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
@@ -56,9 +54,11 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'vimwiki/vimwiki'
 
 Plug 'itchyny/lightline.vim'
+Plug 'skywind3000/quickmenu.vim'
+
 " Plug 'mengelbrecht/lightline-bufferline'
 " Plug 'neomake/neomake'
-Plug 'vim-scripts/matchit.zip'
+" Plug 'vim-scripts/matchit.zip'
 
 call plug#end()
 

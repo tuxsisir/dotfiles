@@ -36,3 +36,5 @@ nmap <C-i> :ALEFix<CR>
 map <F2> :Startify<CR>
 imap <A-BS> <C-W>
 
+" Delete the current buffer
+nnoremap <silent> <Leader>x :bdelete<CR>

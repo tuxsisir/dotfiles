@@ -55,6 +55,7 @@ Plug 'vimwiki/vimwiki'
 
 Plug 'itchyny/lightline.vim'
 Plug 'skywind3000/quickmenu.vim'
+Plug 'voldikss/vim-floaterm'
 
 " Plug 'mengelbrecht/lightline-bufferline'
 " Plug 'neomake/neomake'

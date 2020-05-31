@@ -59,6 +59,18 @@ let g:netrw_liststyle = 3
 
 
 " quickmenu
+call quickmenu#reset()
+
+" enable cursorline (L) and cmdline help (H)
+let g:quickmenu_options = "HL"
+let g:quickmenu_padding_right = 4
+" new section
+call quickmenu#append("# Git", '')
+
+" use fugitive to show diff
+call quickmenu#append("git diff", 'Gvdiff', "use fugitive's Gvdiff on current document")
+call quickmenu#append("git status", 'Gstatus', "use fugitive's Gstatus on current document")
+
 noremap <silent><F9> :call quickmenu#toggle(0)<cr>
 
 " Color Scheme --

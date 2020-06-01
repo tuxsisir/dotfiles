@@ -13,6 +13,7 @@ nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
 
 nnoremap <Leader>bd :bn<cr>:bd<cr>
 map <C-S-n> :Sexplore<CR>
+map <C-S-n> :Vexplore<CR>
 map <C-S-a> :Buffers<CR>
 
 " -- fzf
@@ -36,5 +37,5 @@ nmap <C-i> :ALEFix<CR>
 map <F2> :Startify<CR>
 imap <A-BS> <C-W>
 
-" Delete the current buffer
-nnoremap <silent> <Leader>x :bdelete<CR>
+" Close the current buffer
+nnoremap <silent> <Leader>x :close<CR>

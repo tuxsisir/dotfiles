@@ -56,7 +56,8 @@ let g:netrw_localrmdir = 'rm -rf'
 let g:netrw_banner = 1
 
 let g:netrw_liststyle = 3
-
+" let g:netrw_keepdir = 0
+let g:netrw_list_hide= '.*\.swp$,*.pyc,node_modules,__pycache__,*DS_Store'
 
 " quickmenu
 call quickmenu#reset()
@@ -71,7 +72,21 @@ call quickmenu#append("# Git", '')
 call quickmenu#append("git diff", 'Gvdiff', "use fugitive's Gvdiff on current document")
 call quickmenu#append("git status", 'Gstatus', "use fugitive's Gstatus on current document")
 
+call g:quickmenu#append('# Directories', '')
+call g:quickmenu#append('dots', 'edit ~/mydots/nvim/init.vim | normal c', 'Go to dots')
+call g:quickmenu#append('FuseCodehub', 'edit ~/projects/fuse-machines/fuse-jupyterhub/jupyterhub_config.py | normal c', 'Go to FC')
+call g:quickmenu#append('Codehub Customize', 'edit ~/projects/fuse-machines/codehub-customize/local-codehub/jupyterhub/jupyterhub_config.py | normal c','Go to CC')
+
+call quickmenu#append("# Misc", '')
+call quickmenu#append("Turn spell %{&spell? 'off':'on'}", "set spell!", "enable/disable spell check (:set spell!)")
+
 noremap <silent><F9> :call quickmenu#toggle(0)<cr>
+let g:quickmenu_ft_blacklist= ['netrw', 'nerdtree']
+
+let g:quickmenu_padding_right = 8
+let g:quickmenu_padding_left = 8
+
+call quickmenu#header("Cyber Vim Quickies")
 
 " Color Scheme --
 set background=dark

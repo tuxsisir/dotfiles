@@ -86,7 +86,7 @@ let g:quickmenu_ft_blacklist= ['netrw', 'nerdtree']
 let g:quickmenu_padding_right = 8
 let g:quickmenu_padding_left = 8
 
-call quickmenu#header("Cyber Vim Quickies")
+call quickmenu#header("CyberVim")
 
 " Color Scheme --
 set background=dark

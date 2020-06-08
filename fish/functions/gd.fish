@@ -1,5 +1,7 @@
 function gd
     switch $argv
+        case logapp
+            cd ~/projects/dockerized/logapp/backend/logapp
         case docker
             cd ~/projects/docker/
         case wiki
@@ -7,7 +9,7 @@ function gd
         case nvim
             cd ~/.config/nvim/
         case fish
-            cd ~/.config/fish/functions
+            cd ~/mydots/fish/functions
         case dots
             cd ~/mydots/
         case fuse

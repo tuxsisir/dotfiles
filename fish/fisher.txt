@@ -1,3 +1,6 @@
 edc/bass
 matchai/spacefish
 rafaelrinaldi/pure
+
+
+ln -s -f ~/mydots/fish/functions/tswap.fish ~/.config/fish/functions/tswap.fish

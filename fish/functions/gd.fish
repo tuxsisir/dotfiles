@@ -1,5 +1,7 @@
 function gd
     switch $argv
+        case schoolapp
+            cd ~/projects/dockerized/school-app/schoolapp/
         case logapp
             cd ~/projects/dockerized/logapp/backend/logapp
         case docker

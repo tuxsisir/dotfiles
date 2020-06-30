@@ -45,8 +45,8 @@ set mouse=a
 set visualbell
 
 " conceal level
-set concealcursor=v
-set conceallevel=2
+set concealcursor=nvic
+set conceallevel=0
 
 set laststatus=2
 
@@ -57,8 +57,9 @@ set backspace=indent,eol,start
 
 " Indentation --
 
-" set list
+set list
 " set listchars=space:·,trail:.
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•
 
 " -- Indentation
 "
@@ -69,3 +70,5 @@ set splitbelow
 set splitright
 
 " set autochdir
+
+" set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:» " Show special characters

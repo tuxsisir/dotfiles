@@ -18,7 +18,8 @@ Plug 'alvan/vim-closetag'
 
 Plug 'mhinz/vim-startify'
 Plug 'majutsushi/tagbar'
-Plug 'w0rp/ale'
+
+Plug 'dense-analysis/ale'
 
 "" GIT
 Plug 'tpope/vim-fugitive'
@@ -57,9 +58,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'skywind3000/quickmenu.vim'
 Plug 'voldikss/vim-floaterm'
 
-" Plug 'mengelbrecht/lightline-bufferline'
-" Plug 'neomake/neomake'
-" Plug 'vim-scripts/matchit.zip'
+Plug 'mengelbrecht/lightline-bufferline'
+
+" Plug 'brooth/far.vim'
+Plug 'skanehira/preview-markdown.vim'
 
 call plug#end()
 

@@ -14,15 +14,23 @@ let g:lightline = {
             \ "\<C-s>": 'SB',
             \ 't': 'T',
             \ },
+            \ 'component_function': {
+            \   'cocstatus': 'coc#status'
+            \ },
             \ }
 let g:lightline.active = {
             \ 'left': [ [ 'mode', 'paste' ],
             \           [ 'readonly', 'absolutepath', 'modified' ] ] }
 
-" let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
-let g:lightline#bufferline#filename_modifier = ':t'
-let g:lightline#bufferline#show_number = 1
-let g:lightline#bufferline#modified = '~'
 
+let g:lightline#bufferline#filename_modifier = ':t'
+let g:lightline#bufferline#show_number = 0
+let g:lightline#bufferline#modified = '~'
+let g:lightline#bufferline#unnamed = '[No Name]'
+
+
+" COC - Use auocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()

@@ -63,5 +63,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 " Plug 'brooth/far.vim'
 Plug 'skanehira/preview-markdown.vim'
 
+Plug 'vifm/vifm.vim'
+
 call plug#end()
 

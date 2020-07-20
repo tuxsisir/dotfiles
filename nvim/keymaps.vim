@@ -1,6 +1,5 @@
 " map leaders
 noremap <Leader>s :w<CR>
-" noremap <Leader>bd :bd<CR>
 
 " delete all buffers
 noremap <Leader>bda :bufdo bd<CR>
@@ -46,6 +45,9 @@ imap <A-BS> <C-W>
 
 " Close the current buffer
 nnoremap <silent> <Leader>x :close<CR>
+
+" Delete buffer
+noremap <Leader>xx :bd<CR>
 
 " cyber-git
 noremap <silent> <Leader>cg :FloatermNew lazygit<CR>

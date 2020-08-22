@@ -1,0 +1,26 @@
+session_name: skylens
+
+windows:
+- window_name: code
+  layout: even-vertical
+  shell_command_before:
+    - cd ~/                                     # run as a first command in all panes
+  panes:
+    - shell_command:                            # pane no. 1
+        - vf activate skylens
+        - cd ~/projects/skylens-1.4                           # run multiple commands in this pane
+        - clear
+- window_name: runner
+  layout: even-horizontal
+  shell_command_before:
+    - cd ~/                                     # run as a first command in all panes
+  panes:
+    - shell_command:                            # pane no. 1
+        - vf activate skylens           # run multiple commands in this pane
+        - cd ~/projects/skylens-1.4                            # run multiple commands in this pane
+        - clear
+    - shell_command:                            # pane no. 2
+        - vf activate skylens           # run multiple commands in this pane
+        - cd ~/projects/skylens-1.4                            # run multiple commands in this pane
+        - clear
+

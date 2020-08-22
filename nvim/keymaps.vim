@@ -23,7 +23,7 @@ map <C-S-a> :Buffers<CR>
 
 " fzf
 nmap <C-p> :Files<CR>
-nmap <C-s> :Ag<CR>
+nmap <C-s> :Rg<CR>
 " fzf --
 
 " gitgutter

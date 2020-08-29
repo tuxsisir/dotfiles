@@ -11,11 +11,15 @@ set nocompatible                  " iMprove vim with no vi
 " brew install ctags-exuberant
 let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
-let g:python_host_prog = '/usr/bin/python'
-let g:python2_host_prog = '/usr/local/bin/python2'
+let g:python_host_prog = '/usr/local/bin/python3'
+" let g:python2_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
-set termguicolors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " make swapfiles be kept in a central location to avoid polluting file system
 set directory^=$HOME/.vim/swapfiles//
@@ -31,10 +35,12 @@ execute 'source' s:keymaps
 " Yggdroot - indentline
 
 let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 'nvic'
-let g:indentLine_conceallevel = 0
-let g:indentLine_setConceal = 1
-let g:indentLine_char_list = ['¦', '┊', '|', '┆']
+" let g:indentLine_concealcursor = 'nvic'
+" let g:indentLine_conceallevel = 0
+" let g:indentLine_setConceal = 1
+let g:indentLine_char_list = ['┊']
+
+let g:indentLine_color_term = 236
 
 " -----
 
@@ -92,8 +98,16 @@ let g:quickmenu_padding_left = 8
 call quickmenu#header("CyberVim")
 
 " Color Scheme --
+
 set background=dark
+
+" colorscheme OceanicNext
+
+" let g:oceanic_next_terminal_bold=1
+" let g:oceanic_next_terminal_italic=1
+" colorscheme palenight
 colorscheme dracula
+" colorscheme palenight
 
 " function! ToggleBackground()
     " if &background=="dark"
@@ -157,7 +171,7 @@ endfunction
 function! VimWikiNotebook()
   let s:link = matchstr(getline('.'), '\[\[\zs.\{-}\ze\]\]')
   if s:link != ""
-    silent exec "!open http://localhost:8888/" . s:link
+    silent exec "!open http://localhost:8888/notebooks/" . s:link
   else
     echo "Link not found in line."
   endif
@@ -203,6 +217,10 @@ let g:polyglot_disabled = ['css', 'yaml', 'yml']
 
 " vim wiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" RIPGREP
+
+let g:rg_command = 'rg --vimgrep -S'
 
 " ------------------ COC -------------------------
 " ------------------------------------------------

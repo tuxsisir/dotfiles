@@ -2,8 +2,12 @@ call plug#begin('~/.config/nvim/bundle')
 
 " General
 Plug 'drewtempelmeyer/palenight.vim'                " colorscheme
+Plug 'mhartington/oceanic-next'                " colorscheme
 Plug 'dracula/vim', { 'as': 'dracula' }             " colorscheme
-Plug 'preservim/nerdcommenter'                      " comment out
+Plug 'hardcoreplayers/oceanic-material'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+
+" Plug 'preservim/nerdcommenter'                      " comment out
 Plug 'editorconfig/editorconfig-vim'
 
 " fuzzy
@@ -45,10 +49,6 @@ Plug 'liuchengxu/vista.vim'
 " VimDB - for interacting with databases
 " Plug 'tpope/vim-dadbod'
 
-" Ulti Snippets
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-
 " vim auto format
 Plug 'Chiel92/vim-autoformat'
 
@@ -61,9 +61,17 @@ Plug 'voldikss/vim-floaterm'
 Plug 'mengelbrecht/lightline-bufferline'
 
 " Plug 'brooth/far.vim'
-Plug 'skanehira/preview-markdown.vim'
+" Plug 'skanehira/preview-markdown.vim'
 
-Plug 'vifm/vifm.vim'
+" Plug 'vifm/vifm.vim'
+
+" ----------- SNIPPETS ----------------
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
 
 call plug#end()
 

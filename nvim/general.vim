@@ -59,7 +59,7 @@ set backspace=indent,eol,start
 
 set list
 " set listchars=space:·,trail:.
-set listchars=tab:→\ ,space:·,nbsp:␣,trail:•
+set listchars=tab:→\ ,space:.,nbsp:␣,trail:•
 
 " -- Indentation
 "

@@ -22,7 +22,7 @@ if exists('+termguicolors')
 endif
 
 " vim polyglot disable
-let g:polyglot_disabled = ['yaml', 'yml']
+" let g:polyglot_disabled = ['vue', 'yaml', 'yml', 'startify', 'quickmenu']
 
 " make swapfiles be kept in a central location to avoid polluting file system
 set directory^=$HOME/.vim/swapfiles//
@@ -73,17 +73,12 @@ call quickmenu#reset()
 let g:quickmenu_options = "HL"
 let g:quickmenu_padding_right = 4
 " new section
-call quickmenu#append("# Git", '')
-
-" use fugitive to show diff
-call quickmenu#append("git diff", 'Gvdiff', "use fugitive's Gvdiff on current document")
-call quickmenu#append("git status", 'Gstatus', "use fugitive's Gstatus on current document")
+call quickmenu#append("# LSP", '')
+call g:quickmenu#append("Format Document", "call LanguageClient#textDocument_formatting()", "LSP Format Document")
 
 call g:quickmenu#append('# Directories', '')
 call g:quickmenu#append('dots', 'edit ~/mydots/nvim/init.vim | normal c', 'Go to dots')
-call g:quickmenu#append('logapp', 'edit ~/projects/dockerized/logapp/backend/logapp | normal c', 'Go to logapp')
-call g:quickmenu#append('FuseCodehub', 'edit ~/projects/fuse-machines/fuse-jupyterhub/jupyterhub_config.py | normal c', 'Go to FC')
-call g:quickmenu#append('Codehub Customize', 'edit ~/projects/fuse-machines/codehub-customize/local-codehub/jupyterhub/jupyterhub_config.py | normal c','Go to CC')
+
 
 call quickmenu#append("# Misc", '')
 call quickmenu#append("Turn spell %{&spell? 'off':'on'}", "set spell!", "enable/disable spell check (:set spell!)")
@@ -107,9 +102,9 @@ set background=dark
 
 " let g:oceanic_next_terminal_bold=1
 " let g:oceanic_next_terminal_italic=1
-colorscheme palenight
-" colorscheme dracula
 " colorscheme palenight
+" colorscheme dracula
+colorscheme palenight
 
 " function! ToggleBackground()
     " if &background=="dark"
@@ -124,12 +119,12 @@ colorscheme palenight
 " nnoremap <F5> :call ToggleBackground()<CR>
 
 " -- Color Scheme
-"
+
 syntax on
 set ruler                        " Show row and column ruler information
 let &colorcolumn="80"
 
-
+" HIGHLIGHTS
 highlight ColorColumn ctermbg=13 guibg=MediumPurple4
 highlight Comment cterm=italic gui=italic
 highlight Normal guibg=NONE ctermbg=NONE
@@ -194,4 +189,85 @@ let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
 
 " RIPGREP
 let g:rg_command = 'rg --vimgrep -S'
+
+
+let g:LanguageClient_serverCommands = {
+    \ 'vue': ['/usr/local/bin/vls'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ }
+
+" Virtual Text Rocks
+let g:LanguageClient_hideVirtualTextsOnInsert = 1
+let g:LanguageClient_virtualTextPrefix = " •••➜ "
+let g:LanguageClient_useFloatingHover = 1
+
+let virtualTextDisplay = {
+            \        '1': {
+            \            "name": "Error",
+            \            "texthl": "ALEError",
+            \            "signText": "✖",
+            \            "signTexthl": "ALEErrorSign",
+            \            "virtualTexthl": "Whitespace",
+            \        },
+            \        '2': {
+            \            "name": "Warning",
+            \            "texthl": "ALEWarning",
+            \            "signText": "⚠",
+            \            "signTexthl": "ALEWarningSign",
+            \            "virtualTexthl": "Whitespace",
+            \        },
+            \        '3': {
+            \            "name": "Information",
+            \            "texthl": "ALEInfo",
+            \            "signText": "ℹ",
+            \            "signTexthl": "ALEInfoSign",
+            \            "virtualTexthl": "Whitespace",
+            \        },
+            \        '4': {
+            \            "name": "Hint",
+            \            "texthl": "ALEInfo",
+            \            "signText": "➤",
+            \            "signTexthl": "ALEInfoSign",
+            \            "virtualTexthl": "Whitespace",
+            \        },
+            \    }
+
+let g:LanguageClient_diagnosticsDisplay = virtualTextDisplay
+
+" let g:LanguageClient_useVirtualText = 'Diagnostics'
+
+set omnifunc=syntaxcomplete#Complete
+
+" note that if you are using Plug mapping you should not use `noremap` mappings.
+nmap <F5> <Plug>(lcn-menu)
+" Or map each action separately
+nmap <silent>K <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F8> <Plug>(lcn-rename)
+
+" let $LANGUAGECLIENT_DEBUG=1
+" let g:LanguageClient_loggingLevel='DEBUG'
+" let g:LanguageClient_autoStart=0
+" let g:LanguageClient_loggingFile =  expand('~/nvimLanguageClient.log')
+
+set signcolumn=yes
+
+" function! CloseHiddenBuffers()
+"     " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+"     " close any buffers hidden
+"     " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"     let open_buffers = []
+"
+"     for i in range(tabpagenr('$'))
+"         call extend(open_buffers, tabpagebuflist(i + 1))
+"     endfor
+"
+"     for num in range(1, bufnr("$") + 1)
+"         if buflisted(num) && index(open_buffers, num) == -1
+"             exec "bdelete ".num
+"         endif
+"     endfor
+" endfunction
+"
+" au BufEnter * call CloseHiddenBuffers()
 

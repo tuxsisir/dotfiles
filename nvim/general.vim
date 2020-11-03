@@ -1,3 +1,4 @@
+set hidden
 set number                              " show line numbers and relative number
 " set relativenumber                    " relative number
 set linebreak                           " break lines
@@ -39,7 +40,7 @@ set foldlevel=2
 set nofoldenable
 
 
-set cursorline                          " sets cursorline
+set nocursorline                          " sets cursorline
 
 set mouse=a
 set visualbell

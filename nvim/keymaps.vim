@@ -44,10 +44,10 @@ map <F2> :Startify<CR>
 imap <A-BS> <C-W>
 
 " Close the current buffer
-nnoremap <silent> <Leader>x :close<CR>
+nnoremap <silent> <Leader>xx :close<CR>
 
 " Delete buffer
-noremap <Leader>xx :bd<CR>
+noremap <Leader>x :bd<CR>
 
 " cyber-git
 noremap <silent> <Leader>cg :FloatermNew lazygit<CR>

@@ -30,19 +30,26 @@ Plug 'autozimu/LanguageClient-neovim', {
             \ 'do': 'bash install.sh',
             \ }
 
+" note that if you are using Plug mapping you should not use `noremap` mappings.
+nmap <F5> <Plug>(lcn-menu)
+" Or map each action separately
+nmap <silent>K <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F2> <Plug>(lcn-rename)
+
 " good to have
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-startify'
 Plug 'majutsushi/tagbar'
 Plug 'dense-analysis/ale'
-Plug 'zxqfl/tabnine-vim'
+Plug 'codota/tabnine-vim'
 Plug 'alvan/vim-closetag'
 Plug 'itchyny/vim-gitbranch'
 
 "" GIT
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'                                      " Blamer
@@ -70,7 +77,7 @@ Plug 'itchyny/calendar.vim'
 " Plug 'tpope/vim-dadbod'
 " Plug 'brooth/far.vim'
 " Plug 'skanehira/preview-markdown.vim'
-Plug 'vifm/vifm.vim'
+" Plug 'vifm/vifm.vim'
 
 " ----------- SNIPPETS ----------------
 " Track the engine.
@@ -85,7 +92,7 @@ call plug#end()
 
 
 " CLOSE TAGS AND AUTO PAIRS
-let g:AutoPairsFlyMode = 1
+" let g:AutoPairsFlyMode = 1
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
 let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 

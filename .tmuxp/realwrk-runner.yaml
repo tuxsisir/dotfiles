@@ -1,0 +1,24 @@
+session_name: realwrk-runner
+
+windows:
+- window_name: runner
+  layout: tiled
+  shell_command_before:
+    - cd ~/projects/realwork/realwork-lms/
+  panes:
+    - shell_command:                            # pane no. 1
+        - vf activate realwrk
+        - cd ~/projects/realwork/realwork-lms/backend
+        - ./manage.py runserver
+    - shell_command:                            # pane no. 2
+        - vf activate realwrk
+        - cd ~/projects/realwork/realwork-lms/frontend
+        - yarn dev
+    - shell_command:                            # pane no. 3
+        - vf activate realwrk
+        - cd ~/projects/realwork/realwork-lms/backend
+        - ./manage.py qcluster
+    - shell_command:                            # pane no. 4
+        - vf activate realwrk
+        - cd ~/projects/executables
+        - ./MailHog_darwin_amd64

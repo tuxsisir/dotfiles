@@ -11,16 +11,20 @@ windows:
         - cd ~/projects/skylens-1.4                           # run multiple commands in this pane
         - clear
 - window_name: runner
-  layout: even-horizontal
+  layout: tiled
   shell_command_before:
     - cd ~/                                     # run as a first command in all panes
   panes:
     - shell_command:                            # pane no. 1
         - vf activate skylens           # run multiple commands in this pane
-        - cd ~/projects/skylens-1.4                            # run multiple commands in this pane
-        - clear
+        - cd ~/projects/executables                            # run multiple commands in this pane
+        - ./ngrok http -subdomain=skylens 5000
     - shell_command:                            # pane no. 2
         - vf activate skylens           # run multiple commands in this pane
-        - cd ~/projects/skylens-1.4                            # run multiple commands in this pane
-        - clear
-
+        - cd ~/projects/skylens-1.4/skylens/src                            # run multiple commands in this pane
+        - yarn watch
+    - shell_command:                            # pane no. 2
+        - vf activate skylens           # run multiple commands in this pane
+        - cd ~/projects/skylens-1.4/skylens/                            # run multiple commands in this pane
+        - load_env .env
+        - flask run

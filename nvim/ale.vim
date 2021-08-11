@@ -8,9 +8,19 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
             \  'python': ['autopep8', 'yapf'],
+            \  'javascript': ['prettier'],
+            \  'vue': ['prettier']
+            \}
+
+" Disable fixers for any file containing 'skylens' in its path.
+let g:ale_pattern_options = {
+            \  'skylens': {'ale_fixers': {
+            \  'python': ['autopep8', 'yapf'],
             \  'javascript': ['eslint'],
             \  'vue': ['eslint']
-            \}
+            \ }
+            \ }
+            \ }
 
 let g:ale_javascript_eslint_executable = 'eslint'
 
@@ -18,13 +28,16 @@ let g:ale_javascript_eslint_executable = 'eslint'
 let g:ale_sign_error = "\u2717"
 let g:ale_sign_warning = "\u26A0"
 
+highlight ALEErrorSign ctermbg=NONE guifg=red gui=underline
+highlight ALEWarningSign ctermbg=NONE guifg=yellow gui=underline
+
 let g:ale_open_list = 0
 
 " Check on file open
-let g:ale_lint_on_enter = 1
+let g:ale_lint_on_enter = 0
 
 " Check on file save
-let g:ale_lint_on_save = 1
+let g:ale_lint_on_save = 0
 
 " Check on text change
 let g:ale_lint_on_text_changed = 0

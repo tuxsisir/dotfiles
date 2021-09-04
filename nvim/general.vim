@@ -46,7 +46,7 @@ set mouse=a
 set visualbell
 
 " conceal level
-set concealcursor=nvic
+" set concealcursor=nvic
 set conceallevel=0
 
 set laststatus=2

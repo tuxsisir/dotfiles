@@ -40,7 +40,7 @@ execute 'source' s:keymaps
 let g:indentLine_enabled = 1
 " let g:indentLine_concealcursor = 'nvic'
 " let g:indentLine_conceallevel = 0
-" let g:indentLine_setConceal = 1
+let g:indentLine_setConceal = 1
 let g:indentLine_char_list = ['┊']
 
 let g:indentLine_color_term = 236
@@ -104,7 +104,8 @@ set background=dark
 " let g:oceanic_next_terminal_italic=1
 " colorscheme palenight
 " colorscheme dracula
-colorscheme palenight
+" colorscheme palenight
+colorscheme onehalfdark
 
 " function! ToggleBackground()
     " if &background=="dark"
@@ -177,7 +178,7 @@ endfunction
 map <leader>ol :call VimWikiLink()<cr>
 map <leader>on :call VimWikiNotebook()<cr>
 
-set re=1
+" set re=1
 
 " blamer.nvim
 " let g:blamer_enabled = 1
@@ -208,6 +209,8 @@ let virtualTextDisplay = {
             \            "signText": "✖",
             \            "signTexthl": "ALEErrorSign",
             \            "virtualTexthl": "Whitespace",
+            \            "ctermbg": "NONE",
+            \            "ctermfg": "9",
             \        },
             \        '2': {
             \            "name": "Warning",
@@ -215,6 +218,8 @@ let virtualTextDisplay = {
             \            "signText": "⚠",
             \            "signTexthl": "ALEWarningSign",
             \            "virtualTexthl": "Whitespace",
+            \            "ctermbg": "NONE",
+            \            "ctermfg": "11",
             \        },
             \        '3': {
             \            "name": "Information",

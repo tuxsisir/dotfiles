@@ -3,7 +3,7 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+# env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
@@ -34,8 +34,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
-    y: 0
+    x: 20
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -109,10 +109,10 @@ font:
     #   - (Linux) monospace
     #   - (Windows) Consolas
     # family: SpaceMono Nerd Font
-    family: JetBrains Mono
+    family: BlexMono Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Light
+    style: SemiBold
 
   # Bold font face
   bold:
@@ -120,10 +120,10 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: JetBrains Mono
+    family: BlexMono Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Medium
+    style: SemiBold
 
   # Italic font face
   italic:
@@ -131,10 +131,10 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: JetBrains Mono
+    family: BlexMono Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Italic
+    style: Medium Italic
 
   # Point size
   size: 14.0
@@ -175,7 +175,7 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x000000'
+    background: '0x272936'
     foreground: '0xeaeaea'
 
     # Bright and dim foreground colors
@@ -279,7 +279,7 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.8
+background_opacity: 0.9
 
 # Mouse bindings
 #

@@ -57,6 +57,7 @@ Plug 'APZelos/blamer.nvim'                                      " Blamer
 Plug 'junegunn/goyo.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'itchyny/calendar.vim'
+Plug 'cespare/vim-toml', { 'branch': 'main' }
 
 " Plug 'mattn/gist-vim'
 " Plug 'mattn/webapi-vim'

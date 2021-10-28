@@ -186,7 +186,7 @@ let g:blamer_delay = 500
 
 
 " vim wiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/projects/tuxsisir-hugo/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " RIPGREP
 let g:rg_command = 'rg --vimgrep -S'

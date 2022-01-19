@@ -22,6 +22,16 @@ let g:ale_pattern_options = {
             \ }
             \ }
 
+" Disable fixers for any file containing 'skylens' in its path.
+let g:ale_pattern_options = {
+            \  'tuxnuxt': {'ale_fixers': {
+            \  'python': ['autopep8', 'yapf'],
+            \  'javascript': ['eslint'],
+            \  'vue': ['eslint']
+            \ }
+            \ }
+            \ }
+
 let g:ale_javascript_eslint_executable = 'eslint'
 
 " Change error symbols
@@ -51,5 +61,6 @@ let g:ale_echo_msg_format = 'ALE: [%linter%] %s [%severity%]'
 
 let g:ale_virtualenv_dir_names = ['.virtualenvs', 'virtualenvs']
 
+let g:ale_python_pylint_use_msg_id = 1
 
 " -- ALE Asynchronous Lint Engine

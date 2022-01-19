@@ -12,19 +12,16 @@ noremap <Leader>r :so %<CR>
 noremap <Leader>e :syntax sync minlines=10000<CR>
 
 noremap <F3> :Autoformat<CR>
-noremap <F4> :FZF<CR>
 
 noremap <Leader>gfd :Gvdiffsplit<CR>
 nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
 
-map <C-S-n> :Sexplore<CR>
-map <C-S-n> :Vexplore!<CR>
-map <C-S-a> :Buffers<CR>
+map <C-n> :Sexplore<CR>
+map <C-n> :Vexplore!<CR>
+map <C-a> :Buffers<CR>
 
-" fzf
-nmap <C-p> :Files<CR>
-nmap <C-s> :Rg<CR>
-" fzf --
+nmap <C-p> :Telescope find_files<CR>
+nmap <C-s> :Telescope live_grep<CR>
 
 " gitgutter
 nmap ]h <Plug>(GitGutterNextHunk)

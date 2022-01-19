@@ -35,15 +35,9 @@ execute 'source' s:plugins
 execute 'source' s:general
 execute 'source' s:keymaps
 
-" Yggdroot - indentline
-
-let g:indentLine_enabled = 1
-" let g:indentLine_concealcursor = 'nvic'
-" let g:indentLine_conceallevel = 0
-let g:indentLine_setConceal = 1
-let g:indentLine_char_list = ['┊']
-
-let g:indentLine_color_term = 236
+let g:set_conceallevel=0
+let g:indentLine_setConceal = 2
+let g:indentLine_concealcursor = ""
 
 " -----
 
@@ -276,3 +270,4 @@ set signcolumn=yes
 "
 " au BufEnter * call CloseHiddenBuffers()
 
+map <C-k> :Sexplore<CR>

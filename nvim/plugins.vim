@@ -9,20 +9,22 @@ Plug 'hardcoreplayers/oceanic-material'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'lifepillar/vim-solarized8'
 
-Plug 'lambdalisue/fern.vim'
-Plug 'Chiel92/vim-autoformat'
+" Plug 'lambdalisue/fern.vim'
+" Plug 'Chiel92/vim-autoformat'
 Plug 'vimwiki/vimwiki'
 Plug 'itchyny/lightline.vim'
 Plug 'skywind3000/quickmenu.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'preservim/nerdcommenter'                      " comment out
 " Plug 'editorconfig/editorconfig-vim'
 
 " fuzzy
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
@@ -40,23 +42,24 @@ nmap <silent> <F2> <Plug>(lcn-rename)
 " good to have
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-startify'
 Plug 'majutsushi/tagbar'
 Plug 'dense-analysis/ale'
-Plug 'codota/tabnine-vim'
+" Plug 'codota/tabnine-vim'
 Plug 'alvan/vim-closetag'
 Plug 'itchyny/vim-gitbranch'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "" GIT
-Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'                                      " Blamer
 " Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'itchyny/calendar.vim'
+" Plug 'itchyny/calendar.vim'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 
 " Plug 'mattn/gist-vim'

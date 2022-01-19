@@ -22,3 +22,14 @@ windows:
         - vf activate realwrk
         - cd ~/projects/executables
         - ./MailHog_darwin_amd64
+
+- window_name: code
+  layout: even-vertical
+  shell_command_before:
+    - cd ~/                                     # run as a first command in all panes
+  panes:
+    - shell_command:                            # pane no. 1
+        - vf activate realwrk
+        - cd ~/projects/realwork/realwork-lms/backend       # run multiple commands in this pane
+        - clear
+

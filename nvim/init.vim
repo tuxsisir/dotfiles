@@ -11,7 +11,7 @@ set nocompatible                  " iMprove vim with no vi
 " brew install ctags-exuberant
 let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
-let g:python_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
 " let g:python2_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
@@ -36,8 +36,9 @@ execute 'source' s:general
 execute 'source' s:keymaps
 
 let g:set_conceallevel=0
-let g:indentLine_setConceal = 2
-let g:indentLine_concealcursor = ""
+
+" INDENT LINE
+let g:indent_blankline_use_treesitter = v:true
 
 " -----
 
@@ -47,7 +48,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " default is 4 seconds - reduce to 100ms
 set updatetime=100
-" --
+" -- GIT GUTTER
 
 " Netrw
 let g:netrw_localrmdir='rm -r'
@@ -59,8 +60,11 @@ let g:netrw_banner = 1
 let g:netrw_liststyle = 3
 " let g:netrw_keepdir = 0
 let g:netrw_list_hide= '.*\.swp$,*.pyc,node_modules,__pycache__,.DS_Store'
+" -- Netrw
 
-" quickmenu
+
+" Quickmenu
+
 call quickmenu#reset()
 
 " enable cursorline (L) and cmdline help (H)
@@ -87,6 +91,10 @@ let g:quickmenu_padding_right = 8
 let g:quickmenu_padding_left = 8
 
 call quickmenu#header("CyberVim")
+
+" -- Quickmenu
+
+
 
 " Color Scheme --
 
@@ -250,24 +258,5 @@ nmap <silent> <F8> <Plug>(lcn-rename)
 " let g:LanguageClient_loggingFile =  expand('~/nvimLanguageClient.log')
 
 set signcolumn=yes
-
-" function! CloseHiddenBuffers()
-"     " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"     " close any buffers hidden
-"     " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"     let open_buffers = []
-"
-"     for i in range(tabpagenr('$'))
-"         call extend(open_buffers, tabpagebuflist(i + 1))
-"     endfor
-"
-"     for num in range(1, bufnr("$") + 1)
-"         if buflisted(num) && index(open_buffers, num) == -1
-"             exec "bdelete ".num
-"         endif
-"     endfor
-" endfunction
-"
-" au BufEnter * call CloseHiddenBuffers()
 
 map <C-k> :Sexplore<CR>

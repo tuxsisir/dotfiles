@@ -9,6 +9,8 @@ Plug 'hardcoreplayers/oceanic-material'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'lifepillar/vim-solarized8'
 
+" -- Colorschemes
+
 " Plug 'lambdalisue/fern.vim'
 " Plug 'Chiel92/vim-autoformat'
 Plug 'vimwiki/vimwiki'
@@ -67,7 +69,6 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 
 
 " polyglot
-" Plug 'posva/vim-vue'
 
 " COC
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -90,7 +91,7 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 " Plug 'honza/vim-snippets'
 "
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'posva/vim-vue'
+" Plug 'posva/vim-vue'
 
 call plug#end()
 

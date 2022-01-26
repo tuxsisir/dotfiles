@@ -21,24 +21,24 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-" vim polyglot disable
-" let g:polyglot_disabled = ['vue', 'yaml', 'yml', 'startify', 'quickmenu']
 
 " make swapfiles be kept in a central location to avoid polluting file system
 set directory^=$HOME/.vim/swapfiles//
 
-let s:plugins = '~/mydots/nvim/plugins.vim'
-let s:general = '~/mydots/nvim/general.vim'
-let s:keymaps = '~/mydots/nvim/keymaps.vim'
 
-execute 'source' s:plugins
-execute 'source' s:general
-execute 'source' s:keymaps
+source ~/mydots/nvim/plugins.vim
+source ~/mydots/nvim/general.vim
+source ~/mydots/nvim/keymaps.vim
 
+let g:startify_center = 1
 let g:set_conceallevel=0
 
 " INDENT LINE
 let g:indent_blankline_use_treesitter = v:true
+let g:indent_blankline_filetype_exclude = [
+            \ 'lspinfo', 'packer',
+            \ 'checkhealth', 'help', '', 'startify', 'quickmenu'
+            \ ]
 
 " -----
 
@@ -48,6 +48,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " default is 4 seconds - reduce to 100ms
 set updatetime=100
+
 " -- GIT GUTTER
 
 " Netrw
@@ -63,7 +64,9 @@ let g:netrw_list_hide= '.*\.swp$,*.pyc,node_modules,__pycache__,.DS_Store'
 " -- Netrw
 
 
-" Quickmenu
+"" -------------------- ----------------- --------------------
+""  QuickMenu
+"" -------------------- ----------------- --------------------
 
 call quickmenu#reset()
 
@@ -76,7 +79,6 @@ call g:quickmenu#append("Format Document", "call LanguageClient#textDocument_for
 
 call g:quickmenu#append('# Directories', '')
 call g:quickmenu#append('dots', 'edit ~/mydots/nvim/init.vim | normal c', 'Go to dots')
-
 
 call quickmenu#append("# Misc", '')
 call quickmenu#append("Turn spell %{&spell? 'off':'on'}", "set spell!", "enable/disable spell check (:set spell!)")
@@ -148,7 +150,8 @@ filetype plugin indent on
 " filetype plugin --
 
 " ALE / Lint --
-source $HOME/mydots/nvim/ale.vim
+" source $HOME/mydots/nvim/ale.vim
+runtime ./ale.vim
 " -- ALE / Lint
 
 

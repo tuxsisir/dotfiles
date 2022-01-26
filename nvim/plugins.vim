@@ -91,6 +91,7 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 " Plug 'honza/vim-snippets'
 "
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'dstein64/vim-startuptime'
 " Plug 'posva/vim-vue'
 
 call plug#end()

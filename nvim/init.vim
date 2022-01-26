@@ -3,9 +3,17 @@
 "" -------------------- ----------------- --------------------
 "" @tuxsisir
 
-set encoding=utf-8
-let mapleader=";"
-set nocompatible                  " iMprove vim with no vi
+source $HOME/mydots/nvim/base.vim
+
+" make swapfiles be kept in a central location to avoid polluting file system
+set directory^=$HOME/.vim/swapfiles//
+
+source $HOME/mydots/nvim/plugins.vim
+source $HOME/mydots/nvim/quickmenu.vim
+source $HOME/mydots/nvim/general.vim
+source $HOME/mydots/nvim/keymaps.vim
+source $HOME/mydots/nvim/lightline.vim
+source $HOME/mydots/nvim/startify.vim
 
 " Paths
 " brew install ctags-exuberant
@@ -15,30 +23,21 @@ let g:python_host_prog = '/usr/bin/python2'
 " let g:python2_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-
-" make swapfiles be kept in a central location to avoid polluting file system
-set directory^=$HOME/.vim/swapfiles//
-
-
-source ~/mydots/nvim/plugins.vim
-source ~/mydots/nvim/general.vim
-source ~/mydots/nvim/keymaps.vim
-
-let g:startify_center = 1
 let g:set_conceallevel=0
 
 " INDENT LINE
-let g:indent_blankline_use_treesitter = v:true
 let g:indent_blankline_filetype_exclude = [
             \ 'lspinfo', 'packer',
             \ 'checkhealth', 'help', '', 'startify', 'quickmenu'
             \ ]
+
+let g:indent_blankline_context_char_list = ['┃', '║', '╬', '█']
+
+let g:indent_blankline_char_list = ['┊']
+
+let g:indent_blankline_show_first_indent_level = v:false
+let g:indent_blankline_use_treesitter = v:true
+let g:indent_blankline_show_end_of_line = v:true
 
 " -----
 
@@ -63,44 +62,9 @@ let g:netrw_liststyle = 3
 let g:netrw_list_hide= '.*\.swp$,*.pyc,node_modules,__pycache__,.DS_Store'
 " -- Netrw
 
-
-"" -------------------- ----------------- --------------------
-""  QuickMenu
-"" -------------------- ----------------- --------------------
-
-call quickmenu#reset()
-
-" enable cursorline (L) and cmdline help (H)
-let g:quickmenu_options = "HL"
-let g:quickmenu_padding_right = 4
-" new section
-call quickmenu#append("# LSP", '')
-call g:quickmenu#append("Format Document", "call LanguageClient#textDocument_formatting()", "LSP Format Document")
-
-call g:quickmenu#append('# Directories', '')
-call g:quickmenu#append('dots', 'edit ~/mydots/nvim/init.vim | normal c', 'Go to dots')
-
-call quickmenu#append("# Misc", '')
-call quickmenu#append("Turn spell %{&spell? 'off':'on'}", "set spell!", "enable/disable spell check (:set spell!)")
-
-call quickmenu#append("# Python", '')
-call quickmenu#append("Sort Imports", "CocCommand python.sortImports", "")
-
-noremap <silent><F9> :call quickmenu#toggle(0)<cr>
-let g:quickmenu_ft_blacklist= ['netrw']
-
-let g:quickmenu_padding_right = 8
-let g:quickmenu_padding_left = 8
-
-call quickmenu#header("CyberVim")
-
-" -- Quickmenu
-
-
-
 " Color Scheme --
 
-set background=dark
+" set background=dark
 
 " colorscheme OceanicNext
 
@@ -111,17 +75,16 @@ set background=dark
 " colorscheme palenight
 colorscheme onehalfdark
 
-" function! ToggleBackground()
-    " if &background=="dark"
-        " set background=light
-        " colorscheme solarized8_flat
-    " else
-        " set background=dark
-        " colorscheme OceanicNext
-    " endif
-" endfunction
-
-" nnoremap <F5> :call ToggleBackground()<CR>
+function! ToggleBackground()
+  if &background=="dark"
+    " set background=light
+    " colorscheme solarized8_flat
+  else
+    " set background=dark
+    " colorscheme OceanicNext
+  endif
+endfunction
+nnoremap <F5> :call ToggleBackground()<CR>
 
 " -- Color Scheme
 
@@ -135,23 +98,9 @@ highlight Comment cterm=italic gui=italic
 highlight Normal guibg=NONE ctermbg=NONE
 highlight Comment cterm=italic gui=italic
 
-" LIGHTLINE
-source $HOME/mydots/nvim/lightline.vim
-" -- LIGHTLINE
-
-" VIM Startify --
-source $HOME/mydots/nvim/startify.vim
-" -- VIM Startify
-
-
-
-" -- filetype plugin
-filetype plugin indent on
-" filetype plugin --
 
 " ALE / Lint --
-" source $HOME/mydots/nvim/ale.vim
-runtime ./ale.vim
+source $HOME/mydots/nvim/ale.vim
 " -- ALE / Lint
 
 
@@ -162,26 +111,6 @@ runtime ./ale.vim
 " let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 " -- Ulti Snippets
 
-function! VimWikiLink()
-  let s:link = matchstr(getline('.'), '\[\[\zs.\{-}\ze\]\]')
-  if s:link != ""
-    silent exec "!open http://localhost:8642/" . s:link
-  else
-    echo "Link not found in line."
-  endif
-endfunction
-
-function! VimWikiNotebook()
-  let s:link = matchstr(getline('.'), '\[\[\zs.\{-}\ze\]\]')
-  if s:link != ""
-    silent exec "!open http://localhost:8888/notebooks/" . s:link
-  else
-    echo "Link not found in line."
-  endif
-endfunction
-
-map <leader>ol :call VimWikiLink()<cr>
-map <leader>on :call VimWikiNotebook()<cr>
 
 " set re=1
 
@@ -190,17 +119,15 @@ map <leader>on :call VimWikiNotebook()<cr>
 let g:blamer_delay = 500
 
 
-" vim wiki
-let g:vimwiki_list = [{'path': '~/projects/tuxsisir-hugo/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " RIPGREP
 let g:rg_command = 'rg --vimgrep -S'
 
 
 let g:LanguageClient_serverCommands = {
-    \ 'vue': ['/usr/local/bin/vls'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ }
+        \ 'vue': ['/usr/local/bin/vls'],
+        \ 'python': ['/usr/local/bin/pyls'],
+        \ }
 
 " Virtual Text Rocks
 let g:LanguageClient_hideVirtualTextsOnInsert = 1
@@ -260,6 +187,3 @@ nmap <silent> <F8> <Plug>(lcn-rename)
 " let g:LanguageClient_autoStart=0
 " let g:LanguageClient_loggingFile =  expand('~/nvimLanguageClient.log')
 
-set signcolumn=yes
-
-map <C-k> :Sexplore<CR>

@@ -23,6 +23,9 @@ map <C-a> :Buffers<CR>
 nmap <C-p> :Telescope find_files<CR>
 nmap <C-s> :Telescope live_grep<CR>
 
+" telescope - help commands
+noremap <silent> <Leader>ct :Telescope help_tags<CR>
+
 " gitgutter
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
@@ -38,6 +41,8 @@ nmap <C-i> :ALEFix<CR>
 
 " REMAPS
 map <F2> :Startify<CR>
+
+" delete word on alt backspace
 imap <A-BS> <C-W>
 
 " Close the current buffer
@@ -46,11 +51,13 @@ nnoremap <silent> <Leader>xx :close<CR>
 " Delete buffer
 noremap <Leader>x :bd<CR>
 
-" cyber-git
+" git
 noremap <silent> <Leader>cg :FloatermNew lazygit<CR>
 
-" cyber-quickmenu
+" quickmenu
 noremap <silent> <Leader>cq :call quickmenu#toggle(0)<CR>
 
-" cyber-floaterm
+" floaterm
 noremap <silent> <Leader>cf :FloatermNew<CR>
+
+map <C-k> :Sexplore<CR>

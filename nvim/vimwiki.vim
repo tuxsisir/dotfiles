@@ -20,4 +20,4 @@ map <leader>ol :call VimWikiLink()<cr>
 map <leader>on :call VimWikiNotebook()<cr>
 
 " vim wiki
-let g:vimwiki_list = [{'path': '~/projects/tuxsisir-hugo/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/projects/tuxnuxt/content', 'syntax': 'markdown', 'ext': '.md'}]

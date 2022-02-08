@@ -14,6 +14,7 @@ source $HOME/mydots/nvim/general.vim
 source $HOME/mydots/nvim/keymaps.vim
 source $HOME/mydots/nvim/lightline.vim
 source $HOME/mydots/nvim/startify.vim
+source $HOME/mydots/nvim/vimwiki.vim
 
 " Paths
 " brew install ctags-exuberant

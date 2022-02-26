@@ -20,11 +20,11 @@ map <C-n> :Sexplore<CR>
 map <C-n> :Vexplore!<CR>
 map <C-a> :Buffers<CR>
 
-nmap <C-p> :Telescope find_files<CR>
-nmap <C-s> :Telescope live_grep<CR>
+nmap <C-p> :Files<CR>
+nmap <C-s> :Rg<CR>
 
 " telescope - help commands
-noremap <silent> <Leader>ct :Telescope help_tags<CR>
+" noremap <silent> <Leader>ct :Telescope help_tags<CR>
 
 " gitgutter
 nmap ]h <Plug>(GitGutterNextHunk)

@@ -23,12 +23,12 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'editorconfig/editorconfig-vim'
 
 " fuzzy
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " telescope
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
@@ -95,7 +95,8 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 "
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dstein64/vim-startuptime'
-" Plug 'posva/vim-vue'
+Plug 'posva/vim-vue'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 

@@ -36,7 +36,7 @@ nmap <C-l>   :bn<CR>
 nmap <C-h>   :bp<CR>
 " -- Buffers
 "
-nmap <C-i> :ALEFix<CR>
+map <C-i> :ALEFix<CR>
 
 
 " REMAPS
@@ -60,4 +60,5 @@ noremap <silent> <Leader>cq :call quickmenu#toggle(0)<CR>
 " floaterm
 noremap <silent> <Leader>cf :FloatermNew<CR>
 
-map <C-k> :Sexplore<CR>
+" map <C-k> :Sexplore<CR>
+nmap <C-k> :ALEFix<CR>

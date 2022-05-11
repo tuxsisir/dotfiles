@@ -4,12 +4,14 @@ let g:ale_linters = {
             \   'javascript': ['eslint'],
             \   'python': ['pylint'],
             \   'vue': ['eslint'],
+            \   'json': ['prettier']
             \ }
 
 let g:ale_fixers = {
             \  'python': ['autopep8', 'yapf'],
             \  'javascript': ['prettier'],
-            \  'vue': ['prettier']
+            \  'vue': ['prettier'],
+            \  'json': ['prettier']
             \}
 
 " Disable fixers for any file containing 'skylens' in its path.

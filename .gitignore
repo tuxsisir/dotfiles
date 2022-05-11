@@ -1,1 +1,7 @@
 .DS_Store
+
+# ignore all on tmuxp
+/.tmuxp/*
+
+# except example.yaml
+!/.tmuxp/example.yaml

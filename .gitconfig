@@ -1,0 +1,21 @@
+[core]
+    editor = vim
+    pager = delta
+
+[user]
+    name = Sisir Ghimire Chettri
+    email = samratsisir294@gmail.com
+
+[github]
+    user = tuxsisir
+
+[alias]
+    s = status
+    di = diff
+    df = diff --staged
+
+[delta]
+    line-numbers = true
+
+[pull]
+    ff = false

@@ -1,0 +1,4 @@
+let mapleader=";"
+noremap <Leader>s :w<CR>
+
+set clipboard+=unnamedplus

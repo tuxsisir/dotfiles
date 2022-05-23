@@ -1,25 +1,20 @@
 call plug#begin('~/.config/nvim/bundle')
 
 " Colorschemes
-
-Plug 'drewtempelmeyer/palenight.vim'                " colorscheme
-Plug 'mhartington/oceanic-next'                     " colorscheme
-Plug 'dracula/vim', { 'as': 'dracula' }             " colorscheme
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'hardcoreplayers/oceanic-material'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'lifepillar/vim-solarized8'
 
-" -- Colorschemes
-
-" Plug 'lambdalisue/fern.vim'
-" Plug 'Chiel92/vim-autoformat'
 Plug 'vimwiki/vimwiki'
 Plug 'itchyny/lightline.vim'
 Plug 'skywind3000/quickmenu.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'lukas-reineke/indent-blankline.nvim'
-" Plug 'preservim/nerdcommenter'                      " comment out
+" Plug 'preservim/nerdcommenter'
 " Plug 'editorconfig/editorconfig-vim'
 
 " fuzzy
@@ -31,18 +26,18 @@ Plug 'junegunn/fzf.vim'
 " Plug 'nvim-telescope/telescope.nvim'
 
 " LanguageClient
-Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"             \ 'branch': 'next',
+"             \ 'do': 'bash install.sh',
+"             \ }
 
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
-nmap <F5> <Plug>(lcn-menu)
-" Or map each action separately
-nmap <silent>K <Plug>(lcn-hover)
-nmap <silent> gd <Plug>(lcn-definition)
-nmap <silent> <F2> <Plug>(lcn-rename)
+" nmap <F5> <Plug>(lcn-menu)
+" " Or map each action separately
+" nmap <silent>K <Plug>(lcn-hover)
+" nmap <silent> gd <Plug>(lcn-definition)
+" nmap <silent> <F2> <Plug>(lcn-rename)
 
 " good to have
 Plug 'tpope/vim-surround'
@@ -74,7 +69,7 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 " polyglot
 
 " COC
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'liuchengxu/vista.vim'
 
 " REST
@@ -93,7 +88,7 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 " Snippets are separated from the engine. Add this if you want them:
 " Plug 'honza/vim-snippets'
 "
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dstein64/vim-startuptime'
 Plug 'posva/vim-vue'
 Plug 'scrooloose/nerdcommenter'
@@ -107,6 +102,6 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
 let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 
 " DEOPLETE
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
-let g:vue_pre_processors = []
+" let g:vue_pre_processors = []

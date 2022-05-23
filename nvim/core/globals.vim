@@ -19,6 +19,14 @@ let g:python_host_prog = '/usr/bin/python2'
 " let g:python2_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
+" Disable perl provider
+let g:loaded_perl_provider = 0
+
+" Disable ruby provider
+let g:loaded_ruby_provider = 0
+
+" Disable node provider
+let g:loaded_node_provider = 0
 
 " INDENT LINE
 let g:indent_blankline_filetype_exclude = [

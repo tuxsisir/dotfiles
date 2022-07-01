@@ -26,11 +26,12 @@ Plug 'junegunn/fzf.vim'
 " Plug 'nvim-telescope/telescope.nvim'
 
 " LanguageClient
-" Plug 'autozimu/LanguageClient-neovim', {
-"             \ 'branch': 'next',
-"             \ 'do': 'bash install.sh',
-"             \ }
+Plug 'autozimu/LanguageClient-neovim', {
+            \ 'branch': 'next',
+            \ 'do': 'bash install.sh',
+            \ }
 
+" Plug 'gko/vim-coloresque'
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 " nmap <F5> <Plug>(lcn-menu)
@@ -61,6 +62,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'maximbaz/lightline-ale'
 " Plug 'itchyny/calendar.vim'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
+Plug 'ap/vim-css-color', { 'branch': 'master' }
 
 " Plug 'mattn/gist-vim'
 " Plug 'mattn/webapi-vim'
@@ -69,7 +71,7 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 " polyglot
 
 " COC
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'liuchengxu/vista.vim'
 
 " REST
@@ -88,7 +90,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Snippets are separated from the engine. Add this if you want them:
 " Plug 'honza/vim-snippets'
 "
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dstein64/vim-startuptime'
 Plug 'posva/vim-vue'
 Plug 'scrooloose/nerdcommenter'
@@ -102,6 +104,6 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
 let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 
 " DEOPLETE
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 " let g:vue_pre_processors = []

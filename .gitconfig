@@ -1,6 +1,6 @@
 [core]
     editor = vim
-    pager = delta
+    #pager = delta
 
 [user]
     name = Sisir Ghimire Chettri
@@ -19,3 +19,5 @@
 
 [pull]
     ff = false
+[init]
+	defaultBranch = main

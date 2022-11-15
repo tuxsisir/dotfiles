@@ -1,0 +1,6 @@
+require('impatient')
+require('options')
+require('keymaps')
+require('autocommands')
+require('packer-plugins')
+require('colorscheme')

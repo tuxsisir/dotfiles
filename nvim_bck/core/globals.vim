@@ -3,21 +3,13 @@
 " make swapfiles be kept in a central location to avoid polluting file system
 set directory^=$HOME/.vim/swapfiles//
 
-" source $HOME/mydots/nvim/plugins.vim
-" source $HOME/mydots/nvim/quickmenu.vim
-" source $HOME/mydots/nvim/general.vim
-" source $HOME/mydots/nvim/keymaps.vim
-" source $HOME/mydots/nvim/lightline.vim
-" source $HOME/mydots/nvim/startify.vim
-" source $HOME/mydots/nvim/vimwiki.vim
-
 " Paths
 " brew install ctags-exuberant
 let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
-let g:python_host_prog = '/usr/bin/python2'
+" let g:python_host_prog = '/usr/bin/python2'
 " let g:python2_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '$HOME/.pyenv/shims/python'
 
 " Disable perl provider
 let g:loaded_perl_provider = 0
@@ -130,7 +122,7 @@ let g:rg_command = 'rg --vimgrep -S'
 
 let g:LanguageClient_serverCommands = {
         \ 'vue': ['/usr/local/bin/vls'],
-        \ 'python': ['/usr/local/bin/pyls'],
+        \ 'python': ['$HOME/.pyenv/shims/pyls'],
         \ }
 
 " Virtual Text Rocks

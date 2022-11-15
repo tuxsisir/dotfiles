@@ -1,7 +1,3 @@
-
-
-
-
 let &colorcolumn="80"
 
 " HIGHLIGHTS

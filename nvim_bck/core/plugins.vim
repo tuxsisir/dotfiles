@@ -28,7 +28,7 @@ Plug 'junegunn/fzf.vim'
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
+            \ 'do': './install.sh',
             \ }
 
 " Plug 'gko/vim-coloresque'

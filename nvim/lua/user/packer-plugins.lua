@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
     use { "wbthomason/packer.nvim" }
     use { "nvim-lua/plenary.nvim" }
     use { "lewis6991/impatient.nvim" }
-    -- use { "lukas-reineke/indent-blankline.nvim" }
+    use { "lukas-reineke/indent-blankline.nvim" }
     use {
         "nvim-tree/nvim-tree.lua",
         requires = { "nvim-tree/nvim-web-devicons" },
@@ -114,7 +114,18 @@ return require('packer').startup(function(use)
     })
 
     -- Telescope
-    use { "nvim-telescope/telescope.nvim", tag="0.1.0" }
+    use {
+      "nvim-telescope/telescope.nvim",
+      tag="0.1.0",
+      require("nvim-surround").setup({
+        pickers = {
+          find_files = {
+            hidden = true
+          }
+        }
+      })
+    }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use {
         "ahmedkhalf/project.nvim",
         config = function()

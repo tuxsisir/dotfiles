@@ -51,4 +51,15 @@ set.listchars:append("tab:\\ →")
 set.listchars:append('nbsp:␣')
 -- set.listchars:append('space:')
 
+set.wildignore:append { "*.pyc"}
+set.wildignore:append { "**/venv/*"}
+set.wildignore:append { "**/data/*"}
+set.wildignore:append { "*_build/*"}
+set.wildignore:append { "**/coverage/*"}
+set.wildignore:append { "**/node_modules/*"}
+set.wildignore:append { "**/android/*"}
+set.wildignore:append { "**/ios/*"}
+set.wildignore:append { "**/.git/*"}
+set.wildignore:append { "**/debug/*"}
+
 set.visualbell = true

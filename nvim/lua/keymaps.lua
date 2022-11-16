@@ -27,7 +27,7 @@ keymap("n", "<C-l>", ":bnext<CR>", opts)
 keymap("n", "<C-h>", ":bprevious<CR>", opts)
 
 -- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+keymap("n", "<leader>n", ":nohl<CR>", opts)
 
 -- Custom save
 keymap("n", "<leader>s", ":w<CR>", opts)
@@ -55,3 +55,6 @@ keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
 keymap("n", "<C-s>", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>pp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>bb", ":Telescope buffers<CR>", opts)
+
+-- Transparent
+keymap("n", "<leader>tt", ":TransparentToggle<CR>", opts)

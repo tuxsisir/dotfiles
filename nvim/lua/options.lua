@@ -19,15 +19,15 @@ set.splitright = true                       -- force all vertical splits to go t
 set.swapfile = false                        -- creates a swapfile
 set.termguicolors = true                    -- set term gui colors (most terminals support this)
 set.timeoutlen = 1000                       -- time to wait for a mapped sequence to complete (in milliseconds)
-set.undofile = true                         -- enable persistent undo
+set.undofile = false                        -- enable persistent undo
 set.updatetime = 300                        -- faster completion (4000ms default)
 set.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 set.expandtab = true                        -- convert tabs to spaces
 set.shiftwidth = 4                          -- the number of spaces inserted for each indentation
 set.tabstop = 4                             -- insert 4 spaces for a tab
 set.cursorline = true                       -- highlight the current line
-set.relativenumber = true                   -- set relative numbered lines
--- set.number = true                        -- set numbered lines
+-- set.relativenumber = true                   -- set relative numbered lines
+set.number = true                           -- set numbered lines
 set.laststatus = 3                          -- only the last window will always have a status line
 set.showcmd = false                         -- hide (partial) command in the last line of the screen (for performance)
 set.ruler = true                            -- hide the line and column number of the cursor position
@@ -46,9 +46,9 @@ set.linebreak = true
 
 
 set.list = true
--- set.listchars["tab"]= { }"→"
--- set.listchars["space"]= "--"
--- set.listchars["nbsp"]= "␣"
-set.listchars["trail"]= "•"
+set.listchars:append('trail:.')
+set.listchars:append("tab:\\ →")
+set.listchars:append('nbsp:␣')
+-- set.listchars:append('space:')
 
 set.visualbell = true

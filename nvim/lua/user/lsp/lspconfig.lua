@@ -89,16 +89,18 @@ lspconfig["html"].setup({
 lspconfig["vls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  filetypes = { "vue" },
+  cmd = { "vls" }
 })
 
 
 -- configure typescript server with plugin
--- typescript.setup({
---   server = {
---     capabilities = capabilities,
---     on_attach = on_attach,
---   },
--- })
+typescript.setup({
+  server = {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  },
+})
 
 -- -- configure css server
 -- lspconfig["cssls"].setup({
@@ -119,11 +121,11 @@ lspconfig["pyright"].setup({
 })
 
 -- -- configure emmet language server
--- lspconfig["emmet_ls"].setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte", "vue" },
--- })
+lspconfig["emmet_ls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte", "vue" },
+})
 
 -- configure lua server (with special settings)
 lspconfig["sumneko_lua"].setup({

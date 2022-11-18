@@ -40,6 +40,8 @@ packer.init({
   },
 })
 
+vim.cmd [[highlight IndentBlanklineCustom guifg=#474747 gui=nocombine]]
+
 return require("packer").startup(function(use)
   -- packer can manage itself
   use({ "wbthomason/packer.nvim" })
@@ -51,13 +53,15 @@ return require("packer").startup(function(use)
     config = function()
       require("indent_blankline").setup({
         show_trailing_blankline_indent = false,
+        show_first_indent_level = true,
         show_current_context = true,
         show_current_context_start = true,
         space_char_blankline = " ",
+        use_treesitter = true,
         char = "┊",
-        char_highlight_list = {
-          "IndentBlanklineIndent1"
-        },
+        context_highlight_list = {
+          "IndentBlanklineCustom",
+        }
       })
     end
   }
@@ -80,6 +84,9 @@ return require("packer").startup(function(use)
     config = function()
       require("transparent").setup({
         enable = true,
+        extra_groups = {
+          "BufferLineFill",
+        }
       })
     end,
   })

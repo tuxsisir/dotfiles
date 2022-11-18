@@ -85,12 +85,11 @@ lspconfig["html"].setup({
   on_attach = on_attach,
 })
 
--- configure vls (vue) server
-lspconfig["vls"].setup({
+-- congiure volar server
+lspconfig["volar"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = { "vue" },
-  cmd = { "vls" }
 })
 
 

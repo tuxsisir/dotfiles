@@ -40,8 +40,6 @@ packer.init({
   },
 })
 
-vim.cmd [[highlight IndentBlanklineCustom guifg=#474747 gui=nocombine]]
-
 return require("packer").startup(function(use)
   -- packer can manage itself
   use({ "wbthomason/packer.nvim" })
@@ -58,10 +56,7 @@ return require("packer").startup(function(use)
         show_current_context_start = true,
         space_char_blankline = " ",
         use_treesitter = true,
-        char = "┊",
-        context_highlight_list = {
-          "IndentBlanklineCustom",
-        }
+        char = "┊"
       })
     end
   }

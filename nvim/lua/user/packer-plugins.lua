@@ -46,7 +46,7 @@ return require("packer").startup(function(use)
   use({ "nvim-lua/plenary.nvim" })
   use({ "lewis6991/impatient.nvim" })
 
-  use {
+  use({
     "lukas-reineke/indent-blankline.nvim",
     config = function()
       require("indent_blankline").setup({
@@ -56,10 +56,13 @@ return require("packer").startup(function(use)
         show_current_context_start = true,
         space_char_blankline = " ",
         use_treesitter = true,
-        char = "┊"
+        char = "┊",
       })
-    end
-  }
+    end,
+  })
+  -- editorconfig
+  use { "gpanders/editorconfig.nvim" }
+
   -- tree explorer
   use({
     "nvim-tree/nvim-tree.lua",
@@ -81,7 +84,7 @@ return require("packer").startup(function(use)
         enable = true,
         extra_groups = {
           "BufferLineFill",
-        }
+        },
       })
     end,
   })

@@ -58,3 +58,6 @@ keymap("n", "<leader>bb", ":Telescope buffers<CR>", opts)
 
 -- Transparent
 keymap("n", "<leader>tt", ":TransparentToggle<CR>", opts)
+
+
+-- TOGGLE DIAGNOSTICS

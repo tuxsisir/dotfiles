@@ -17,25 +17,25 @@ if not typescript_setup then
 end
 
 local config = {
-    virtual_text = false, -- disable virtual text
-    update_in_insert = false,
-    underline = true,
-    severity_sort = true,
-    float = {
-        focusable = true,
-        style = "minimal",
-        source = "always",
-        header = "",
-        prefix = "",
-    },
+  virtual_text = false, -- disable virtual text
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = true,
+    style = "minimal",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
 }
 vim.diagnostic.config(config)
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded"
+  border = "rounded",
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded"
+  border = "rounded",
 })
 
 local keymap = vim.keymap -- for conciseness
@@ -92,7 +92,6 @@ lspconfig["volar"].setup({
   filetypes = { "vue" },
 })
 
-
 -- configure typescript server with plugin
 typescript.setup({
   server = {
@@ -133,6 +132,12 @@ lspconfig["sumneko_lua"].setup({
   settings = { -- custom settings for lua
     Lua = {
       -- make the language server recognize "vim" global
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = "LuaJIT",
+        -- Setup your lua path
+        path = vim.split(package.path, ";"),
+      },
       diagnostics = {
         globals = { "vim" },
       },

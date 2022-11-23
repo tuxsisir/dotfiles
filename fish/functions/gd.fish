@@ -11,9 +11,9 @@ function gd
         case nvim
             cd ~/.config/nvim/
         case fish
-            cd ~/mydots/fish/functions
+            cd ~/dotfiles/fish/functions
         case dots
-            cd ~/mydots/
+            cd ~/dotfiles/
         case fuse
             cd ~/projects/fuse-machines/
         case codehub

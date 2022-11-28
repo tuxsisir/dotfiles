@@ -29,6 +29,9 @@ keymap("n", "<C-h>", ":bprevious<CR>", opts)
 -- Clear highlights
 keymap("n", "<leader>n", ":nohl<CR>", opts)
 
+-- Clear highlights
+keymap("n", "<leader>q", ":qall<CR>", opts)
+
 -- Custom save
 keymap("n", "<leader>s", ":w<CR>", opts)
 

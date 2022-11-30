@@ -27,11 +27,11 @@ treesitter.setup({
     -- end,
   },
   -- enable indentation
-  indent = { enable = true, disable = { "python", "css", "html" } },
+  indent = { enable = true, disable = { "python", "css", "html", "vue" } },
   -- enable autotagging (w/ nvim-ts-autotag plugin)
   autotag = {
     enable = true,
-    filetypes = { "html", "htmldjango", "xml" },
+    filetypes = { "html", "htmldjango", "xml", "vue" },
   },
   -- ensure these language parsers are installed
   ensure_installed = {

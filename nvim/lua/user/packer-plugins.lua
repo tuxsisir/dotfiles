@@ -53,15 +53,26 @@ return require("packer").startup(function(use)
         show_trailing_blankline_indent = false,
         show_first_indent_level = true,
         show_current_context = true,
-        show_current_context_start = true,
+        show_current_context_start = false,
         space_char_blankline = " ",
         use_treesitter = true,
         char = "┊",
       })
     end,
   })
+  use({
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  })
   -- editorconfig
-  use { "gpanders/editorconfig.nvim" }
+  use({ "gpanders/editorconfig.nvim" })
 
   -- tree explorer
   use({
@@ -77,6 +88,9 @@ return require("packer").startup(function(use)
       require("alpha").setup(require("alpha.themes.startify").config)
     end,
   })
+
+  -- use({ "RRethy/vim-illuminate" })
+
   use({
     "xiyaowong/nvim-transparent",
     config = function()
@@ -112,6 +126,7 @@ return require("packer").startup(function(use)
 
   -- autocompletions
   use({ "hrsh7th/nvim-cmp" }) -- completion plugin
+  use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "hrsh7th/cmp-buffer" }) -- source for text in buffer
   use({ "hrsh7th/cmp-path" }) -- source for file system paths
   use({ "hrsh7th/cmp-cmdline" }) -- source for file system paths
@@ -124,7 +139,6 @@ return require("packer").startup(function(use)
 
   -- configuring lsp servers
   use({ "neovim/nvim-lspconfig" })
-  use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
   use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)

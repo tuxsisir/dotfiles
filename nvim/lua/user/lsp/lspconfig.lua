@@ -38,6 +38,13 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
   border = "rounded",
 })
 
+-- auto show the highlights
+local group = vim.api.nvim_create_augroup("Line Diagnostics", { clear = true })
+vim.api.nvim_create_autocmd("CursorHold", {
+  command = "lua vim.diagnostic.open_float()",
+  group = group,
+})
+
 local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds only for when lsp server available
@@ -53,8 +60,8 @@ local on_attach = function(client, bufnr)
   keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- show diagnostic
   keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
   keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-  keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
-  keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
+  keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
+  keymap.set("n", "<leader>dc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
   keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
   keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
   keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
@@ -113,17 +120,34 @@ typescript.setup({
 -- })
 --
 -- configure pyright server
+
+local util = require("lspconfig/util")
 lspconfig["pyright"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  root_dir = function(fname)
+    return util.root_pattern(".git", "setup.py", "manage.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname)
+      or util.path.dirname(fname)
+  end,
 })
 
 -- -- configure emmet language server
-lspconfig["emmet_ls"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte", "vue" },
-})
+-- lspconfig["emmet_ls"].setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = {
+--     "html",
+--     "htmldjango",
+--     "typescriptreact",
+--     "javascriptreact",
+--     "css",
+--     "sass",
+--     "scss",
+--     "less",
+--     "svelte",
+--     "vue",
+--   },
+-- })
 
 -- configure lua server (with special settings)
 lspconfig["sumneko_lua"].setup({

@@ -54,13 +54,12 @@ keymap("n", "<leader>x", ":bd<CR>", opts)
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
-keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
-keymap("n", "<C-s>", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>pp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>bb", ":Telescope buffers<CR>", opts)
+keymap("n", "<C-p>", ":Telescope find_files theme=ivy<CR>", opts)
+keymap("n", "<C-s>", ":Telescope live_grep theme=ivy<CR>", opts)
+keymap("n", "<leader>pp", ":Telescope projects theme=ivy<CR>", opts)
+keymap("n", "<leader>bb", ":Telescope buffers theme=ivy<CR>", opts)
 
 -- Transparent
 keymap("n", "<leader>tt", ":TransparentToggle<CR>", opts)
-
 
 -- TOGGLE DIAGNOSTICS

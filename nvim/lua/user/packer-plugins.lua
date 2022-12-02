@@ -138,6 +138,15 @@ return require("packer").startup(function(use)
   use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
   -- configuring lsp servers
+  use({
+    "seblj/nvim-echo-diagnostics",
+    config = function()
+      require("echo-diagnostics").setup({
+        show_diagnostic_number = true,
+        show_diagnostic_source = true,
+      })
+    end,
+  })
   use({ "neovim/nvim-lspconfig" })
   use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion

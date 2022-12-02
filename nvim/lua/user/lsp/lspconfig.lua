@@ -16,35 +16,6 @@ if not typescript_setup then
   return
 end
 
-local config = {
-  virtual_text = false, -- disable virtual text
-  update_in_insert = false,
-  underline = true,
-  severity_sort = true,
-  float = {
-    focusable = true,
-    style = "minimal",
-    source = "always",
-    header = "",
-    prefix = "",
-  },
-}
-vim.diagnostic.config(config)
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
-})
-
--- auto show the highlights
-local group = vim.api.nvim_create_augroup("Line Diagnostics", { clear = true })
-vim.api.nvim_create_autocmd("CursorHold", {
-  command = "lua vim.diagnostic.open_float()",
-  group = group,
-})
-
 local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds only for when lsp server available
@@ -175,3 +146,50 @@ lspconfig["sumneko_lua"].setup({
     },
   },
 })
+
+local config = {
+  virtual_text = false, -- disable virtual text
+  update_in_insert = false,
+  underline = false,
+  severity_sort = true,
+  float = {
+    focusable = true,
+    style = "minimal",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+}
+vim.diagnostic.config(config)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = "rounded",
+})
+
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--   virtual_text = false,
+--   signs = true,
+--   update_in_insert = false,
+--   underline = false,
+-- })
+
+-- local pubdiag = "textDocument/publishDiagnostics"
+-- local def_pubdiag_handler = vim.lsp.handlers[pubdiag]
+-- vim.lsp.handlers[pubdiag] = function(err, method, res, cid, bufnr, cfg)
+--   def_pubdiag_handler(err, method, res, cid, bufnr, cfg)
+--   vim.diagnostic.setloclist({ open = false })
+-- end
+
+-- auto show the highlights
+-- local group = vim.api.nvim_create_augroup("Line Diagnostics", { clear = true })
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--   command = "lua vim.diagnostic.open_float()",
+--   group = group,
+-- })
+
+
+vim.cmd([[ autocmd CursorHold * lua require('echo-diagnostics').echo_entire_diagnostic() ]])
+

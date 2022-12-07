@@ -191,5 +191,5 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 -- })
 
 
-vim.cmd([[ autocmd CursorHold * lua require('echo-diagnostics').echo_entire_diagnostic() ]])
+vim.cmd([[ autocmd CursorHold * lua require('echo-diagnostics').echo_line_diagnostic() ]])
 

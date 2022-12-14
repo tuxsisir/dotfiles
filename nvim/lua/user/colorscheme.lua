@@ -6,10 +6,11 @@
 -- end
 -- Lua
 -- require('onenord').setup()
-require("onedark").setup({
-  style = "warm",
-  lualine = {
-    transparent = false, -- lualine center bar transparency
-  },
-})
-require("onedark").load()
+-- require("onedark").setup({
+--   style = "warm",
+--   lualine = {
+--     transparent = false, -- lualine center bar transparency
+--   },
+-- })
+-- require("onedark").load()
+vim.cmd[[colorscheme tokyonight]]

@@ -57,6 +57,7 @@ return require("packer").startup(function(use)
         space_char_blankline = " ",
         use_treesitter = true,
         char = "┊",
+        indent_blankline_filetype_exclude="markdown"
       })
     end,
   })
@@ -73,6 +74,21 @@ return require("packer").startup(function(use)
   })
   -- editorconfig
   use({ "gpanders/editorconfig.nvim" })
+
+  -- vimwiki
+  use ({
+    'vimwiki/vimwiki',
+    config = function()
+      vim.g.vimwiki_conceallevel = 0
+      vim.g.vimwiki_list = {
+        {
+          path = '~/projects/tuxchirpy/_posts/',
+          syntax = 'markdown',
+          ext = '.md',
+        }
+      }
+    end
+  })
 
   -- tree explorer
   use({
@@ -123,6 +139,7 @@ return require("packer").startup(function(use)
   use({ "rmehri01/onenord.nvim" })
   use({ "navarasu/onedark.nvim" })
   use({ "gruvbox-community/gruvbox" })
+  use 'folke/tokyonight.nvim'
 
   -- autocompletions
   use({ "hrsh7th/nvim-cmp" }) -- completion plugin
@@ -172,14 +189,7 @@ return require("packer").startup(function(use)
   -- Telescope
   use({
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
-    require("nvim-surround").setup({
-      pickers = {
-        find_files = {
-          hidden = true,
-        },
-      },
-    }),
+    tag = "0.1.0"
   })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({

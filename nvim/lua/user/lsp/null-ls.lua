@@ -23,6 +23,7 @@ null_ls.setup({
     formatting.djhtml.with({
       args = { "-t 2" },
     }),
+    formatting.eslint_d,
     diagnostics.eslint_d.with({ -- js/ts linter
       -- only enable eslint if root has .eslintrc.js
       condition = function(utils)

@@ -1,3 +1,5 @@
+" bare minimum vim conf
+
 let mapleader=";"
 noremap <Leader>s :w<CR>
 

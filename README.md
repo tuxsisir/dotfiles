@@ -2,8 +2,7 @@
 
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-300x87.png" alt="Neovim" width="40%">
- 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Tmux_logo.svg/2560px-Tmux_logo.svg.png" alt="tmux" width="40%">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Tmux_logo.svg/2560px-Tmux_logo.svg.png" alt="tmux" width="40%">
 </h1>
 
 ### Find the configurations for following:

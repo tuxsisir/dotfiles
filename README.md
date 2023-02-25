@@ -31,8 +31,3 @@ patrickf1/fzf.fish
 
 - whole directory (skip the directory at the end)
 `ln -s -f ~/dotfiles/nvim ~/.config/`
-
----
-
-Contributor:
-[Sisir Ghimire Chettri](https://tuxsisir.github.io)

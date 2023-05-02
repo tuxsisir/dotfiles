@@ -24,7 +24,8 @@ null_ls.setup({
       args = { "-t 2" },
     }),
     formatting.eslint_d,
-    diagnostics.eslint_d.with({ -- js/ts linter
+    diagnostics.eslint_d.with({
+      -- js/ts linter
       -- only enable eslint if root has .eslintrc.js
       condition = function(utils)
         return utils.root_has_file(".eslintrc.js", ".eslintrc") -- change file extension if you use something else
@@ -41,5 +42,5 @@ null_ls.setup({
         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
       end, { buffer = bufnr, desc = "[lsp] format" })
     end
-  end
+  end,
 })

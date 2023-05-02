@@ -4,19 +4,12 @@ if not status then
   return
 end
 
--- enable html parser in htmldjango file
-local import_parsers, parsers = pcall(require, "nvim-treesitter.parsers")
-if import_parsers then
-  local parsername = parsers.filetype_to_parsername
-  parsername.htmldjango = "html"
-end
-
 -- configure treesitter
 treesitter.setup({
   -- enable syntax highlighting
   highlight = {
     enable = true,
-    disable = { "html", "htmldjango" },
+    disable = { "htmldjango" },
     -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
     -- disable = function(lang, buf)
     --     local max_filesize = 100 * 1024 -- 100 KB
@@ -26,8 +19,8 @@ treesitter.setup({
     --     end
     -- end,
   },
-  -- enable indentation
-  indent = { enable = true, disable = { "python", "css", "html", "vue" } },
+  -- enable / disable indentation
+  indent = { enable = true, disable = { "python", "htmldjango", "css", "html", "vue" } },
   -- enable autotagging (w/ nvim-ts-autotag plugin)
   autotag = {
     enable = true,
@@ -51,7 +44,25 @@ treesitter.setup({
     "dockerfile",
     "gitignore",
     "vue",
+    "htmldjango",
   },
   -- auto install above language parsers
   auto_install = true,
 })
+
+-- enable html parser in htmldjango file
+-- vim.treesitter.language.register("html", "htmldjango")
+
+-- local import_tag, autotag = pcall(require, "nvim-ts-autotag")
+-- if not import_tag then
+--   return
+-- end
+-- autotag.setup({
+--   autotag = {
+--     enable = true,
+--   },
+--   filetypes = {
+--     "html",
+--     "htmldjango",
+--   },
+-- })

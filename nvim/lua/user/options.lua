@@ -1,4 +1,10 @@
 local set = vim.opt
+local global = vim.g
+
+global.python3_host_prog = 'python3'
+global.loaded_ruby_provider = 0
+global.loaded_perl_provider = 0
+global.loaded_node_provider = 0
 
 set.backup = false                          -- creates a backup file
 set.clipboard:append("unnamedplus")         -- allows neovim to access the system clipboard
@@ -33,7 +39,7 @@ set.showcmd = false                         -- hide (partial) command in the las
 set.ruler = true                            -- hide the line and column number of the cursor position
 set.numberwidth = 4                         -- minimal number of columns to use for the line number {default 4}
 set.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
-set.wrap = false                            -- display lines as one long line
+set.wrap = true                             -- display lines as one long line
 set.scrolloff = 8                           -- minimal number of screen lines to keep above and below the cursor
 set.sidescrolloff = 8                       -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
 -- set.guifont = "monospace:h17"               -- the font used in graphical neovim applications

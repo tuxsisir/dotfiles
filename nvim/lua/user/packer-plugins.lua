@@ -122,7 +122,6 @@ return require("packer").startup(function(use)
     "xiyaowong/nvim-transparent",
     config = function()
       require("transparent").setup({
-        enable = true,
         extra_groups = {
           "BufferLineFill",
         },
@@ -144,6 +143,8 @@ return require("packer").startup(function(use)
     end,
   })
 
+  use({ "dinhhuy258/git.nvim" })
+
   use({ "lewis6991/gitsigns.nvim" })
 
   -- colorscheme
@@ -153,16 +154,16 @@ return require("packer").startup(function(use)
   use({ "folke/tokyonight.nvim" })
 
   -- autocompletions
-  use({ "hrsh7th/nvim-cmp" }) -- completion plugin
+  use({ "hrsh7th/nvim-cmp" })         -- completion plugin
   use({ "hrsh7th/cmp-nvim-lsp" })
-  use({ "hrsh7th/cmp-buffer" }) -- source for text in buffer
-  use({ "hrsh7th/cmp-path" }) -- source for file system paths
-  use({ "hrsh7th/cmp-cmdline" }) -- source for file system paths
+  use({ "hrsh7th/cmp-buffer" })       -- source for text in buffer
+  use({ "hrsh7th/cmp-path" })         -- source for file system paths
+  use({ "hrsh7th/cmp-cmdline" })      -- source for file system paths
 
   use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
 
   -- snippets
-  use({ "L3MON4D3/LuaSnip" }) --snippet engine
+  use({ "L3MON4D3/LuaSnip" })             --snippet engine
   use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
   -- configuring lsp servers
@@ -177,12 +178,12 @@ return require("packer").startup(function(use)
   })
   use({ "neovim/nvim-lspconfig" })
   use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
-  use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-  use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+  use("onsails/lspkind.nvim")                      -- vs-code like icons for autocompletion
+  use("jose-elias-alvarez/typescript.nvim")        -- additional functionality for typescript server (e.g. rename file & update imports)
 
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
-  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+  use("jayp0521/mason-null-ls.nvim")     -- bridges gap b/w mason & null-ls
 
   -- managing and installing lsp servers
   use({ "williamboman/mason.nvim" })
@@ -196,6 +197,7 @@ return require("packer").startup(function(use)
       ts_update()
     end,
   })
+  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
   -- Telescope
   use({
@@ -220,15 +222,12 @@ return require("packer").startup(function(use)
     end,
   })
 
-  -- auto closing
   use({
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup({})
     end,
   }) -- autoclose parens, brackets, quotes, etc...
-
-  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
   -- whichkey
   use({

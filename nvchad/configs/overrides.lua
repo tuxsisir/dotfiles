@@ -37,7 +37,7 @@ M.mason = {
     "deno",
     "prettier",
     "pyright",
-    "volar",
+    "vue-language-server",
 
     -- c/cpp stuff
     "clangd",
@@ -53,6 +53,7 @@ M.nvimtree = {
   },
 
   renderer = {
+    root_folder_label = true,
     highlight_git = true,
     icons = {
       show = {

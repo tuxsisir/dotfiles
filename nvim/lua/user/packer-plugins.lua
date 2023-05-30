@@ -162,8 +162,16 @@ return require("packer").startup(function(use)
 
   use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
 
-  -- snippets
-  use({ "L3MON4D3/LuaSnip" })             --snippet engine
+  --snippet engine
+  use({
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/my-snippets" } })
+      end,
+    },
+  })
   use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
   -- configuring lsp servers

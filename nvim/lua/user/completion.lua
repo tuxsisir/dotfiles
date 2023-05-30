@@ -33,7 +33,7 @@ cmp.setup({
     end,
   },
   experimental = {
-    ghost_text = true,
+    ghost_text = false,
   },
   mapping = cmp.mapping.preset.insert({
     ["<Tab>"] = cmp.mapping(function(fallback)

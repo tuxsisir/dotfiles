@@ -17,7 +17,7 @@ null_ls.setup({
   sources = {
     --  to disable file types use
     --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-    formatting.autopep8,
+    formatting.black,
     formatting.prettier, -- js/ts formatter
     formatting.stylua, -- lua formatter
     formatting.djhtml.with({
@@ -28,7 +28,7 @@ null_ls.setup({
       -- js/ts linter
       -- only enable eslint if root has .eslintrc.js
       condition = function(utils)
-        return utils.root_has_file(".eslintrc.js", ".eslintrc") -- change file extension if you use something else
+        return utils.root_has_file(".eslintrc.js", ".eslintrc", ".eslintrc.cjs") -- change file extension if you use something else
       end,
     }),
   },

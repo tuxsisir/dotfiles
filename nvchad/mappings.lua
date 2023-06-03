@@ -11,6 +11,8 @@ M.general = {
 		["<leader>q"] = { ":qall<CR>", "Quit all" },
 		["<C-l>"] = { ":bnext<CR>", "Navigate buffer next" },
 		["<C-h>"] = { ":bprevious<CR>", "Navigate buffer previous" },
+    ["<leader>tn"] = { ":tabnext<CR>", "Tab Next" },
+    ["<leader>tp"] = { ":tabprevious<CR>", "Tab Previous" },
 		["<leader>tt"] = {
 			function()
 				require("base46").toggle_transparency()

@@ -1,0 +1,12 @@
+{
+  "require": {
+    "prefix": "re",
+    "body": ["require(\"${1:module}\")"],
+    "description": "Require module"
+  },
+  "return": {
+    "prefix": "ret",
+    "body": ["return $0"],
+    "description": "return value"
+  }
+}

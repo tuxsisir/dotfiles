@@ -11,17 +11,25 @@ local sources = {
 	-- webdev stuff
 	b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
 	b.formatting.prettierd.with({
-    filetypes = { "html", "markdown", "css", "vue" },
-    extra_args = { "--single-quote" }
-  }), -- so prettier works only on these filetypes
+		filetypes = { "html", "markdown", "css", "vue", "js", "ts" },
+		extra_args = { "--config .prettierrc" },
+	}), -- so prettier works only on these filetypes
 
-  -- python
-  b.formatting.black,
+	-- python
+	b.formatting.black,
 	-- Lua
 	b.formatting.stylua,
 
 	-- cpp
 	b.formatting.clang_format,
+
+	-- json
+	b.formatting.fixjson,
+
+	-- dictionary
+	b.hover.dictionary,
+
+	-- diagnostics
 }
 
 null_ls.setup({

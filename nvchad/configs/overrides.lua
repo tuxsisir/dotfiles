@@ -53,10 +53,13 @@ M.mason = {
 
 -- git support in nvimtree
 M.nvimtree = {
+  filters = {
+    custom = { '^.git$', '^.DS_Store$', '^node_modules$' }
+  },
 	git = {
 		enable = true,
+    ignore = false,
 	},
-
   renderer = {
     root_folder_label = true,
     highlight_git = true,

@@ -61,7 +61,7 @@ end
 lspconfig["html"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "html", "htmldjango" }
+  filetypes = { "html", "htmldjango" },
 })
 
 -- congiure volar server
@@ -191,6 +191,4 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 --   group = group,
 -- })
 
-
 vim.cmd([[ autocmd CursorHold * lua require('echo-diagnostics').echo_line_diagnostic() ]])
-

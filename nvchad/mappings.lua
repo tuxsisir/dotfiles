@@ -9,10 +9,20 @@ M.general = {
 		["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Find files" },
 		["<C-s>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
 		["<leader>q"] = { ":qall<CR>", "Quit all" },
-		["<C-l>"] = { ":bnext<CR>", "Navigate buffer next" },
-		["<C-h>"] = { ":bprevious<CR>", "Navigate buffer previous" },
-    ["<leader>tn"] = { ":tabnext<CR>", "Tab Next" },
-    ["<leader>tp"] = { ":tabprevious<CR>", "Tab Previous" },
+		["<leader>tn"] = { ":tabnext<CR>", "Tab Next" },
+		["<leader>tp"] = { ":tabprevious<CR>", "Tab Previous" },
+		["<C-h>"] = {
+			function()
+				-- move buffer right
+				require("nvchad_ui.tabufline").move_buf(1)
+			end,
+		},
+		["<C-l>"] = {
+			function()
+				-- move buffer left
+				require("nvchad_ui.tabufline").move_buf(-1)
+			end,
+		},
 		["<leader>tt"] = {
 			function()
 				require("base46").toggle_transparency()

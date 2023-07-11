@@ -10,10 +10,35 @@ local sources = {
 
 	-- webdev stuff
 	b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-	b.formatting.prettierd.with({
-		filetypes = { "html", "markdown", "css", "vue", "js", "ts" },
-		extra_args = { "--config .prettierrc" },
-	}), -- so prettier works only on these filetypes
+	-- b.formatting.prettierd.with({
+	-- 	filetypes = { "html", "markdown", "css", "js", "ts" },
+	-- 	extra_args = { "--config .prettierrc" },
+	-- }), -- so prettier works only on these filetypes
+	b.formatting.eslint_d,
+	b.diagnostics.eslint_d.with({
+		-- js/ts linter
+		-- only enable eslint if root has .eslintrc.js
+    diagnostics_format = "ESLINT: [#{c}] #{m} (#{s})",
+	}),
+  b.code_actions.eslint_d.with({
+    filetypes = {
+      'javascript',
+      'javascriptreact',
+      'typescript',
+      'typescriptreact',
+      'vue',
+    },
+    extra_args = {
+      -- "-f",
+      -- "json",
+      -- "--stdin",
+      -- "--stdin-filename",
+      -- "$FILENAME",
+      '--no-eslintrc',
+      '--env',
+      'es6',
+    },
+  }),
 
 	-- python
 	b.formatting.black,

@@ -12,3 +12,9 @@ vim.g.mapleader = ";"
 -- vscode format i.e json files
 vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/my-snippets"
 
+-- trim whitespaces on save
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
+

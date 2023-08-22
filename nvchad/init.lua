@@ -18,3 +18,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   command = [[%s/\s\+$//e]],
 })
 
+-- local set = vim.opt
+-- local global = vim.g
+-- set.foldmethod = 'indent'
+

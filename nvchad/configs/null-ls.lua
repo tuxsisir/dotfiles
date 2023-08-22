@@ -18,27 +18,30 @@ local sources = {
 	b.diagnostics.eslint_d.with({
 		-- js/ts linter
 		-- only enable eslint if root has .eslintrc.js
-    diagnostics_format = "ESLINT: [#{c}] #{m} (#{s})",
+		diagnostics_format = "ESLINT: [#{c}] #{m} (#{s})",
+		-- condition = function(utils)
+		-- 	return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.mjs", ".eslintrc" })
+		-- end,
 	}),
-  b.code_actions.eslint_d.with({
-    filetypes = {
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
-      'vue',
-    },
-    extra_args = {
-      -- "-f",
-      -- "json",
-      -- "--stdin",
-      -- "--stdin-filename",
-      -- "$FILENAME",
-      '--no-eslintrc',
-      '--env',
-      'es6',
-    },
-  }),
+	b.code_actions.eslint_d.with({
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"vue",
+		},
+		extra_args = {
+			-- "-f",
+			-- "json",
+			-- "--stdin",
+			-- "--stdin-filename",
+			-- "$FILENAME",
+			"--no-eslintrc",
+			"--env",
+			"es6",
+		},
+	}),
 
 	-- python
 	b.formatting.black,

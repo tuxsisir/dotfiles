@@ -5,12 +5,16 @@ local M = {}
 local highlights = require("custom.highlights")
 
 M.ui = {
-	theme = "vscode_dark",
-	theme_toggle = { "ayu_dark", "vscode_dark" },
+	theme = "palenight",
+	theme_toggle = { "ayu_dark", "palenight" },
 
 	hl_override = highlights.override,
 	hl_add = highlights.add,
-	transparency = false,
+	transparency = true,
+  -- nvdash (dashboard)
+  nvdash = {
+    load_on_startup = true,
+  }
 }
 
 M.plugins = "custom.plugins"

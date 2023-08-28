@@ -45,6 +45,11 @@ local sources = {
 
 	-- python
 	b.formatting.black,
+
+  -- latex
+  b.diagnostics.chktex,
+  b.formatting.latexindent,
+
 	-- Lua
 	b.formatting.stylua,
 

@@ -55,6 +55,22 @@ local plugins = {
 		"windwp/nvim-ts-autotag",
 		lazy = false,
 	},
+	{
+		-- chatgpt
+		"jackMort/ChatGPT.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+		config = function()
+			local home = vim.fn.expand("$HOME")
+			require("chatgpt").setup({
+				api_key_cmd = "cat " .. home .. "/openai.key",
+			})
+		end,
+	},
 }
 
 -- To make a plugin not be loaded

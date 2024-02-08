@@ -18,6 +18,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   command = [[%s/\s\+$//e]],
 })
 
+-- call linter on leaving insert
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
+
 -- local set = vim.opt
 -- local global = vim.g
 -- set.foldmethod = 'indent'

@@ -7,15 +7,6 @@ local plugins = {
 
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			-- format & linting
-			{
-				"jose-elias-alvarez/null-ls.nvim",
-				config = function()
-					require("custom.configs.null-ls")
-				end,
-			},
-		},
 		config = function()
 			require("plugins.configs.lspconfig")
 			require("custom.configs.lspconfig")
@@ -69,6 +60,47 @@ local plugins = {
 			require("chatgpt").setup({
 				api_key_cmd = "cat " .. home .. "/openai.key",
 			})
+		end,
+	},
+	{
+		"stevearc/conform.nvim",
+		--  for users those who want auto-save conform + lazyloading!
+		-- event = "BufWritePre"
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		config = function()
+			require("custom.configs.conform")
+		end,
+	},
+	{
+		"mfussenegger/nvim-lint",
+		lazy = false,
+		event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
+		config = function()
+			local lint = require("lint")
+
+			lint.linters_by_ft = {
+				vue = { "eslint_d" },
+				javascript = { "eslint_d" },
+				typescript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
+				svelte = { "eslint_d" },
+				python = { "pylint" },
+			}
+
+			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+				group = lint_augroup,
+				callback = function()
+					lint.try_lint()
+				end,
+			})
+
+			vim.keymap.set("n", "<leader>lt", function()
+				lint.try_lint()
+			end, { desc = "Trigger linting for current file" })
 		end,
 	},
 }

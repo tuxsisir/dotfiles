@@ -32,8 +32,9 @@ M.general = {
 		["<leader>fm"] = {
 			function()
 				require("conform").format({ async = true, lsp_fallback = true })
+        print('Buffer Formatted')
 			end,
-			"formatting",
+			"Format Buffer",
 		},
 		-- mapping
 	},

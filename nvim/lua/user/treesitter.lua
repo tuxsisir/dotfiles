@@ -24,7 +24,7 @@ treesitter.setup({
   -- enable autotagging (w/ nvim-ts-autotag plugin)
   autotag = {
     enable = true,
-    filetypes = { "html", "htmldjango", "xml", "vue" },
+   filetypes = { "html", "htmldjango", "xml", "vue", 'x' },
   },
   -- ensure these language parsers are installed
   ensure_installed = {

@@ -1,6 +1,7 @@
 local M = {}
 
 M.treesitter = {
+  sync_install = true,
 	ensure_installed = {
 		"vim",
 		"lua",
@@ -16,16 +17,11 @@ M.treesitter = {
 		"htmldjango",
 		"scss",
 	},
-	auto_install = true,
 	indent = {
 		enable = true,
 		-- disable = {
 		--   "python"
 		-- },
-	},
-	autotag = {
-		enable = true,
-		filetypes = { "html", "htmldjango", "xml", "vue" },
 	},
 }
 
@@ -42,7 +38,9 @@ M.mason = {
 		"deno",
 		"prettier",
 		"pyright",
+    "isort",
 		"vue-language-server",
+    "eslint-lsp",
 
 		-- c/cpp stuff
 		"clangd",

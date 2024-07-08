@@ -23,12 +23,12 @@ null_ls.setup({
     formatting.djhtml.with({
       args = { "-t 2" },
     }),
-    formatting.eslint_d,
-    diagnostics.eslint_d.with({
+    formatting.eslint,
+    diagnostics.eslint.with({
       -- js/ts linter
       -- only enable eslint if root has .eslintrc.js
       condition = function(utils)
-        return utils.root_has_file(".eslintrc.js", ".eslintrc", ".eslintrc.cjs") -- change file extension if you use something else
+        return utils.root_has_file(".eslintrc.js", ".eslintrc", ".eslintrc.cjs", "eslint.config.mjs") -- change file extension if you use something else
       end,
     }),
   },

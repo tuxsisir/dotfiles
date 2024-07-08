@@ -1,3 +1,5 @@
+-- UNUSED CONFIG
+-- this is old conf ignore this
 require("user.impatient")
 require("user.neovide")
 require("user.packer-plugins")

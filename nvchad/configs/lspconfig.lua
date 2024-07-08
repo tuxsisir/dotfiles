@@ -2,10 +2,15 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
-local lspconfig_util = require 'lspconfig.util'
+-- local lspconfig_util = require 'lspconfig.util'
 
--- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "pyright", "volar", "texlab" }
+-- if you just want default config for the servers then put them in a table here
+local servers = { "html", "cssls", "clangd", "pyright", "texlab", "eslint", "tailwindcss", "tsserver" }
+
+local function disable_formatting(client)
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
+end
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -14,9 +19,50 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-lspconfig.html.setup({
-	filetypes = { "html", "htmldjango" },
+-- lspconfig.html.setup({
+-- 	filetypes = { "html", "htmldjango" },
+-- })
+
+
+-- volar
+-- don't allow volar to do the formatting, eslint-lsp will handle the formatting (falling back from conform formatting to lsp)
+lspconfig.volar.setup({
+	on_attach = function(client)
+    disable_formatting(client)
+	end,
+	capabilities = capabilities,
+	filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+	init_options = {
+		vue = {
+			hybridMode = false,
+		},
+		typescript = {
+			tsdk = "/opt/homebrew/lib/node_modules/typescript/lib",
+		},
+	},
 })
+
+-- tsserver
+-- lspconfig.tsserver.setup({
+--   init_options = {
+--     plugins = {
+--       {
+--         name = "@vue/typescript-plugin",
+--         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+--         languages = {"javascript", "typescript", "vue"},
+--       },
+--     },
+--   },
+--   filetypes = {
+--     "javascript",
+--     "javascriptreact",
+--     "javascript.jsx",
+--     "typescript",
+--     "typescriptreact",
+--     "typescript.tsx",
+--     "vue",
+--   },
+-- })
 
 -- congiure volar server
 -- local function getNpmGlobalModulesPath()

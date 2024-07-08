@@ -25,6 +25,14 @@ local plugins = {
 	},
 
 	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+		lazy = false,
+	},
+
+	{
 		"nvim-tree/nvim-tree.lua",
 		opts = overrides.nvimtree,
 	},
@@ -41,10 +49,6 @@ local plugins = {
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-	{
-		"windwp/nvim-ts-autotag",
-		lazy = false,
 	},
 	{
 		-- chatgpt
@@ -80,12 +84,12 @@ local plugins = {
 			local lint = require("lint")
 
 			lint.linters_by_ft = {
-				vue = { "eslint_d" },
-				javascript = { "eslint_d" },
-				typescript = { "eslint_d" },
-				javascriptreact = { "eslint_d" },
-				typescriptreact = { "eslint_d" },
-				svelte = { "eslint_d" },
+				-- vue = { "eslint" }, // using eslint lsp which does the linting now
+				javascript = { "eslint" },
+				typescript = { "eslint" },
+				javascriptreact = { "eslint" },
+				typescriptreact = { "eslint" },
+				svelte = { "eslint" },
 				python = { "pylint" },
 			}
 

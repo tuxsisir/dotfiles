@@ -1,10 +1,10 @@
 --type conform.options
 local options = {
-	lsp_fallback = true,
+	-- lsp_fallback = false,
 
 	formatters_by_ft = {
 		lua = { "stylua" },
-		vue = { "eslint_d" },
+		vue = { "eslint" },
 		javascript = { "prettier" },
 		css = { "prettier" },
 		html = { "prettier" },

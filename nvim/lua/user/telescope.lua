@@ -20,7 +20,7 @@ telescope.setup({
   },
   defaults = {
     theme = "dropdown",
-    prompt_prefix = " ",
+    prompt_prefix = " k",
     selection_caret = " ",
     path_display = { "smart" },
     file_ignore_patterns = { "^./.git/", "node_modules", "^./.nuxt/" },

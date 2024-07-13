@@ -38,18 +38,35 @@ local plugins = {
 	},
 
 	-- Install a plugin
-	{
-		"max397574/better-escape.nvim",
-		event = "InsertEnter",
-		config = function()
-			require("better_escape").setup()
-		end,
-	},
+	-- {
+	-- 	"max397574/better-escape.nvim",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("better_escape").setup()
+	-- 	end,
+	-- },
 
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+	{
+		"github/copilot.vim",
+		lazy = false,
+		-- config = function() -- Mapping tab is already used by NvChad
+		-- 	vim.g.copilot_no_tab_map = true
+		-- 	vim.g.copilot_assume_mapped = true
+		-- 	vim.g.copilot_tab_fallback = ""
+		-- 	-- The mapping is set to other key, see custom/lua/mappings
+		-- 	-- or run <leader>ch to see copilot mapping section
+		-- end,
+	},
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	config = function()
+	-- 		require("copilot_cmp").setup()
+	-- 	end,
+	-- },
 	{
 		-- chatgpt
 		"jackMort/ChatGPT.nvim",
@@ -107,6 +124,10 @@ local plugins = {
 			end, { desc = "Trigger linting for current file" })
 		end,
 	},
+	{
+		"max397574/better-escape.nvim",
+		enabled = false,
+	}
 }
 
 -- To make a plugin not be loaded

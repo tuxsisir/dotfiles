@@ -7,7 +7,7 @@
 -- })
 --
 vim.g.mapleader = ";"
--- vim.cmd 'set relativenumber'
+vim.cmd 'set relativenumber'
 --
 -- vscode format i.e json files
 vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/my-snippets"

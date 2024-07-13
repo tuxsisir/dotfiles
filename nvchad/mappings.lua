@@ -11,13 +11,13 @@ M.general = {
 		["<leader>q"] = { ":qall<CR>", "Quit all" },
 		["<leader>tn"] = { ":tabnext<CR>", "Tab Next" },
 		["<leader>tp"] = { ":tabprevious<CR>", "Tab Previous" },
-		["<C-h>"] = {
+		["<C-S-h>"] = {
 			function()
 				-- move buffer right
 				require("nvchad.tabufline").move_buf(1)
 			end,
 		},
-		["<C-l>"] = {
+		["<C-S-l>"] = {
 			function()
 				-- move buffer left
 				require("nvchad.tabufline").move_buf(-1)

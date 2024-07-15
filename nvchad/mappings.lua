@@ -32,7 +32,7 @@ M.general = {
 		["<leader>fm"] = {
 			function()
 				require("conform").format({ async = true, lsp_fallback = true })
-        print('Buffer Formatted')
+				print("Buffer Formatted")
 			end,
 			"Format Buffer",
 		},
@@ -44,5 +44,10 @@ M.general = {
 }
 
 -- more keybinds!
+local map = vim.keymap.set
+map("i", "<C-e>", 'copilot#Accept("\\<CR>")', {
+	expr = true,
+	replace_keycodes = false,
+})
 
 return M

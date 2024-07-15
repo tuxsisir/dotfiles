@@ -19,11 +19,18 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- call linter on leaving insert
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   callback = function()
+--     require("lint").try_lint()
+--   end,
+-- })
+
+-- Automatically refresh buffer after saving the file
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = "*",
+--   command = "silent! e"
+-- })
+
 
 -- local set = vim.opt
 -- local global = vim.g

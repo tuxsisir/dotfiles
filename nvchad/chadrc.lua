@@ -12,12 +12,12 @@ M.ui = {
 	hl_add = highlights.add,
 	transparency = true,
 
-  -- cmp
-  cmp = {
-    icons = true,
-    lspkind_text = true,
-    style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
-  },
+	-- cmp
+	cmp = {
+		icons = true,
+		lspkind_text = true,
+		style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
+	},
 	-- nvdash (dashboard)
 	nvdash = {
 		load_on_startup = true,

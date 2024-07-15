@@ -51,21 +51,62 @@ local plugins = {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
-		"github/copilot.vim",
-		lazy = false,
-		-- config = function() -- Mapping tab is already used by NvChad
-		-- 	vim.g.copilot_no_tab_map = true
-		-- 	vim.g.copilot_assume_mapped = true
-		-- 	vim.g.copilot_tab_fallback = ""
-		-- 	-- The mapping is set to other key, see custom/lua/mappings
-		-- 	-- or run <leader>ch to see copilot mapping section
-		-- end,
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				panel = {
+					auto_refresh = true,
+					layout = {
+						position = "right",
+						ratio = 0.3,
+					},
+				},
+				suggestion = {
+					auto_trigger = true,
+					keymap = {
+						accept = "<C-f>",
+					},
+				},
+			})
+		end,
 	},
 	-- {
 	-- 	"zbirenbaum/copilot-cmp",
 	-- 	config = function()
 	-- 		require("copilot_cmp").setup()
 	-- 	end,
+	-- },
+
+	-- {
+	-- 	"github/copilot.vim",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		-- vim.keymap.del("i", "<C-e>")
+	-- 		-- disable tab completion for github copilot
+	-- 		vim.g.copilot_no_tab_map = true
+	-- 		vim.g.copilot_assume_mapped = true
+	-- 		vim.g.copilot_tab_fallback = ""
+	-- 		vim.g.copilot_filetypes = {
+	-- 			["*"] = true,
+	-- 		}
+	-- 		-- set copilot completion keybinding to <C-f>
+	-- 		-- vim.keymap.set("i", "<C-e>", 'copilot#Accept("\\<CR>")', {
+	-- 		-- 	expr = true,
+	-- 		-- 	nowait = true,
+	-- 		-- 	replace_keycodes = false,
+	-- 		-- 	silent = true,
+	-- 		--   desc = "Fill in the copilot suggestion"
+	-- 		-- })
+	-- 	end,
+	-- 	-- config = function() -- Mapping tab is already used by NvChad
+	-- 	-- 	vim.g.copilot_no_tab_map = true
+	-- 	-- 	vim.g.copilot_assume_mapped = true
+	-- 	-- 	vim.g.copilot_tab_fallback = ""
+	-- 	-- 	-- The mapping is set to other key, see custom/lua/mappings
+	-- 	-- 	-- or run <leader>ch to see copilot mapping section
+	-- 	-- end,
 	-- },
 	{
 		-- chatgpt
@@ -127,7 +168,7 @@ local plugins = {
 	{
 		"max397574/better-escape.nvim",
 		enabled = false,
-	}
+	},
 }
 
 -- To make a plugin not be loaded

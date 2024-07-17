@@ -5,6 +5,7 @@ M.general = {
 	n = {
 		[":"] = { ":", "enter command mode", opts = { nowait = true } },
 		["<leader>s"] = { ":w<CR>", "Save buffer" }, -- save buffer
+		["<leader>e"] = { ":e<CR>", "Refresh buffer" }, -- refresh buffer
 		["<leader>bda"] = { ":bufdo bd<CR>", "Kill all buffers" }, -- kill all buffers
 		["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Find files" },
 		["<C-s>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
@@ -40,14 +41,17 @@ M.general = {
 	},
 	i = {
 		["<A-BS>"] = { "<C-W>", "Delete word on alt backspace" },
+		["<C-l>"] = {
+			function()
+				vim.fn.feedkeys(vim.fn["copilot#Accept"](), "")
+			end,
+			"Copilot Accept",
+			{ replace_keycodes = true, nowait = true, silent = true, expr = true, noremap = true },
+		},
 	},
 }
 
 -- more keybinds!
-local map = vim.keymap.set
-map("i", "<C-e>", 'copilot#Accept("\\<CR>")', {
-	expr = true,
-	replace_keycodes = false,
-})
+-- local map = vim.keymap.set
 
 return M

@@ -5,7 +5,7 @@ local lspconfig = require("lspconfig")
 -- local lspconfig_util = require 'lspconfig.util'
 
 -- if you just want default config for the servers then put them in a table here
-local servers = { "html", "cssls", "clangd", "pyright", "texlab", "eslint", "tailwindcss", "tsserver" }
+local servers = { "html", "cssls", "clangd", "pyright", "texlab", "eslint", "tailwindcss", "ts_ls" }
 
 local function disable_formatting(client)
   client.server_capabilities.documentFormattingProvider = false

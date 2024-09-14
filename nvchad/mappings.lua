@@ -45,9 +45,9 @@ M.general = {
 		["<A-BS>"] = { "<C-W>", "Delete word on alt backspace" },
 		["<C-l>"] = {
 			function()
-				vim.fn.feedkeys(vim.fn["copilot#Accept"](), "")
+				vim.fn.feedkeys(vim.fn["codeium#Accept"](), "")
 			end,
-			"Copilot Accept",
+			"Codium Accept",
 			{ replace_keycodes = true, nowait = true, silent = true, expr = true, noremap = true },
 		},
 	},

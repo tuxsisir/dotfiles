@@ -17,12 +17,14 @@ M.general = {
 				-- move buffer right
 				require("nvchad.tabufline").move_buf(1)
 			end,
+      ""
 		},
 		["<C-S-l>"] = {
 			function()
 				-- move buffer left
 				require("nvchad.tabufline").move_buf(-1)
 			end,
+      ""
 		},
 		["<leader>tt"] = {
 			function()

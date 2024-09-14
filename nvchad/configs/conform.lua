@@ -8,6 +8,7 @@ local options = {
 		javascript = { "prettier" },
 		css = { "prettier" },
 		html = { "prettier" },
+		htmldjango = { "djlint" },
 		python = { "isort", "black" },
 
 		-- sh = { "shfmt" },

@@ -5,11 +5,11 @@ local lspconfig = require("lspconfig")
 -- local lspconfig_util = require 'lspconfig.util'
 
 -- if you just want default config for the servers then put them in a table here
-local servers = { "html", "cssls", "clangd", "pyright", "texlab", "eslint", "tailwindcss", "ts_ls" }
+local servers = { "tailwindcss", "texlab", "eslint", "ts_ls", "pyright" }
 
 local function disable_formatting(client)
-  client.server_capabilities.documentFormattingProvider = false
-  client.server_capabilities.documentRangeFormattingProvider = false
+client.server_capabilities.documentFormattingProvider = false
+client.server_capabilities.documentRangeFormattingProvider = false
 end
 
 for _, lsp in ipairs(servers) do
@@ -21,6 +21,14 @@ end
 
 -- lspconfig.html.setup({
 -- 	filetypes = { "html", "htmldjango" },
+-- })
+--
+--
+
+-- lspconfig.pyright.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   filetypes = { "python" },
 -- })
 
 
@@ -102,5 +110,3 @@ lspconfig.volar.setup({
 -- 	filetypes = { "vue" }
 -- })
 
---
--- lspconfig.pyright.setup { blabla}

@@ -17,14 +17,14 @@ M.general = {
 				-- move buffer right
 				require("nvchad.tabufline").move_buf(1)
 			end,
-      ""
+			"",
 		},
 		["<C-S-l>"] = {
 			function()
 				-- move buffer left
 				require("nvchad.tabufline").move_buf(-1)
 			end,
-      ""
+			"",
 		},
 		["<leader>tt"] = {
 			function()
@@ -43,13 +43,29 @@ M.general = {
 	},
 	i = {
 		["<A-BS>"] = { "<C-W>", "Delete word on alt backspace" },
-		["<C-l>"] = {
-			function()
-				vim.fn.feedkeys(vim.fn["codeium#Accept"](), "")
-			end,
-			"Codium Accept",
-			{ replace_keycodes = true, nowait = true, silent = true, expr = true, noremap = true },
-		},
+		-- Codium
+		-- ["<C-l>"] = {
+		-- 	function()
+		-- 		vim.fn.feedkeys(vim.fn["codeium#Accept"](), "")
+		-- 	end,
+		-- 	"Codium Accept",
+		-- 	{ replace_keycodes = true, nowait = true, silent = true, expr = true, noremap = true },
+		-- },
+
+		-- ["<C-k>"] = {
+		-- 	function()
+		-- 		vim.fn.feedkeys(vim.fn["codeium#CycleOrComplete"](), "")
+		-- 	end,
+		-- 	"Codium Next",
+		-- 	{ replace_keycodes = true, nowait = true, silent = true, expr = true, noremap = true },
+		-- },
+		-- ["<C-k>"] = {
+		-- 	function()
+		-- 		vim.fn.feedkeys(vim.fn['codeium#CycleCompletions'](-1), "")
+		-- 	end,
+		-- 	"Codium Previous",
+		-- 	{ replace_keycodes = true, nowait = true, silent = true, expr = true, noremap = true },
+		-- },
 	},
 }
 

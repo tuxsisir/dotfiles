@@ -26,13 +26,17 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 
 -- Automatically refresh buffer after saving the file
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---   pattern = { "*" },
---   command = "silent! e"
--- })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*" },
+  command = "silent! e"
+})
 
 
 -- local set = vim.opt
 -- local global = vim.g
 -- set.foldmethod = 'indent'
+--
 
+vim.g.codeium_disable_bindings = 1
+vim.g.codeium_no_map_tab = 1
+-- vim.g.codeium_manual = 1

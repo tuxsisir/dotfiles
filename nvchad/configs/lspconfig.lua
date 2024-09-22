@@ -5,18 +5,27 @@ local lspconfig = require("lspconfig")
 -- local lspconfig_util = require 'lspconfig.util'
 
 -- if you just want default config for the servers then put them in a table here
-local servers = { "tailwindcss", "texlab", "eslint", "ts_ls", "pyright" }
+local servers = { "tailwindcss", "texlab", "eslint", "ts_ls", "ruff_lsp" }
 
 local function disable_formatting(client)
-client.server_capabilities.documentFormattingProvider = false
-client.server_capabilities.documentRangeFormattingProvider = false
+	client.server_capabilities.documentFormattingProvider = false
+	client.server_capabilities.documentRangeFormattingProvider = false
 end
 
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
+	if lsp == "pyright" then
+		lspconfig[lsp].setup({
+			on_attach = function(client, bufnr)
+        disable_formatting(client)
+        on_attach(client, bufnr)
+      end
+		})
+	else
+		lspconfig[lsp].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+	end
 end
 
 -- lspconfig.html.setup({
@@ -31,12 +40,11 @@ end
 --   filetypes = { "python" },
 -- })
 
-
 -- volar
 -- don't allow volar to do the formatting, eslint-lsp will handle the formatting (falling back from conform formatting to lsp)
 lspconfig.volar.setup({
 	on_attach = function(client)
-    disable_formatting(client)
+		disable_formatting(client)
 	end,
 	capabilities = capabilities,
 	filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
@@ -109,4 +117,3 @@ lspconfig.volar.setup({
 -- lspconfig["volar"].setup({
 -- 	filetypes = { "vue" }
 -- })
-

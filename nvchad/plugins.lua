@@ -18,6 +18,42 @@ local plugins = {
 		"williamboman/mason.nvim",
 		opts = overrides.mason,
 	},
+	{ "echasnovski/mini.nvim", version = false },
+	{
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		---@type snacks.Config
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+			bigfile = { enabled = true },
+			dashboard = { example = "advanced" },
+			explorer = { enabled = true },
+			indent = {
+				enabled = true,
+				animate = {
+					enabled = true,
+					style = "out",
+					easing = "linear",
+					duration = {
+						step = 20, -- ms per step
+						total = 200, -- maximum duration
+					},
+				},
+			},
+			input = { enabled = true },
+			picker = { enabled = true },
+			notifier = { enabled = true },
+			quickfile = { enabled = true },
+			scope = { enabled = true },
+			scroll = { enabled = true },
+			statuscolumn = { enabled = true },
+			words = { enabled = true },
+			zen = { enabled = true },
+		},
+	},
 
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -140,7 +176,7 @@ local plugins = {
 		"hrsh7th/nvim-cmp",
 		event = { "InsertEnter", "CmdlineEnter" },
 		init = function()
-      vim.g.toggle_cmp = true
+			vim.g.toggle_cmp = true
 			vim.keymap.set("n", "<leader>oa", function()
 				vim.g.toggle_cmp = not vim.g.toggle_cmp
 				if vim.g.toggle_cmp then
@@ -208,8 +244,8 @@ local plugins = {
 			-- {
 			-- 	"Exafunction/codeium.nvim",
 			-- 	enabled = true,
-      --   dependencies = "nvim-lua/plenary.nvim"
-      --   -- opts = {
+			--   dependencies = "nvim-lua/plenary.nvim"
+			--   -- opts = {
 			-- 	-- 	enable_chat = true,
 			-- 	-- },
 			-- },
@@ -234,13 +270,13 @@ local plugins = {
 			},
 		},
 	},
-  -- {
-  --   "Exafunction/codeium.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "hrsh7th/nvim-cmp",
-  --   }
-  -- },
+	-- {
+	--   "Exafunction/codeium.nvim",
+	--   dependencies = {
+	--     "nvim-lua/plenary.nvim",
+	--     "hrsh7th/nvim-cmp",
+	--   }
+	-- },
 	-- {
 	-- 	"Exafunction/codeium.vim",
 	-- 	dependencies = {
@@ -250,8 +286,6 @@ local plugins = {
 	-- 	event = "BufEnter",
 	-- },
 }
-
-
 
 -- To make a plugin not be loaded
 -- {

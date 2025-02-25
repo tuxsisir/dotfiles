@@ -5,7 +5,7 @@ local lspconfig = require("lspconfig")
 -- local lspconfig_util = require 'lspconfig.util'
 
 -- if you just want default config for the servers then put them in a table here
-local servers = { "tailwindcss", "texlab", "eslint", "ts_ls", "ruff_lsp", "jedi_language_server" }
+local servers = { "tailwindcss", "texlab", "eslint", "ts_ls", "ruff", "jedi_language_server" }
 
 local function disable_formatting(client)
 	client.server_capabilities.documentFormattingProvider = false

@@ -5,8 +5,8 @@ local M = {}
 local highlights = require("custom.highlights")
 
 M.ui = {
-	theme = "onedark",
-	theme_toggle = { "onedark", "everforest" },
+	theme = "palenight",
+	theme_toggle = { "palenight", "everforest" },
 
 	hl_override = highlights.override,
 	hl_add = highlights.add,
@@ -20,29 +20,7 @@ M.ui = {
 	},
 	-- nvdash (dashboard)
 	nvdash = {
-		load_on_startup = true,
-		header = {
-			"                                                   ",
-			" ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓",
-			" ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒",
-			"▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░",
-			"▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██ ",
-			"▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒",
-			"░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░",
-			"░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░",
-			"   ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░   ",
-			"         ░    ░  ░    ░ ░        ░   ░         ░   ",
-			"                                ░                  ",
-			"                                                   ",
-		},
-		buttons = {
-			{ "  Find File", "; f f / <C-p>", "Telescope find_files" },
-			{ "󰈚  Recent Files", "; f o", "Telescope oldfiles" },
-			{ "󰈭  Find Word", "; f w / <C-s>", "Telescope live_grep" },
-			{ "  Bookmarks", "; m a", "Telescope marks" },
-			{ "  Themes", "; t h", "Telescope themes" },
-			{ "  Mappings", "; c h", "NvCheatsheet" },
-		},
+		load_on_startup = false,
 	},
 	statusline = {
 		theme = "vscode_colored",

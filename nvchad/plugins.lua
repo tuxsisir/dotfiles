@@ -1,3 +1,4 @@
+---@module 'snacks'
 local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
@@ -12,6 +13,58 @@ local plugins = {
 			require("custom.configs.lspconfig")
 		end, -- Override to setup mason-lspconfig
 	},
+	-- {
+	-- 	"kevinhwang91/nvim-ufo",
+	-- 	dependencies = { "kevinhwang91/promise-async" },
+	-- 	config = function()
+	-- 		local capabilities = vim.lsp.protocol.make_client_capabilities()
+	-- 		capabilities.textDocument.foldingRange = {
+	-- 			dynamicRegistration = false,
+	-- 			lineFoldingOnly = true,
+	-- 		}
+	-- 		local language_servers = vim.lsp.get_clients() -- or list servers manually like {'gopls', 'clangd'}
+	-- 		for _, ls in ipairs(language_servers) do
+	-- 			require("lspconfig")[ls].setup({
+	-- 				capabilities = capabilities,
+	-- 				-- you can add other fields for setting up lsp server in this table
+	-- 			})
+	-- 		end
+	-- 		require("ufo").setup()
+
+	-- 		-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+	-- 		-- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+	-- 		-- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+	-- 		-- require("ufo").setup({
+	-- 		-- 	provider_selector = function(bufnr, filetype, buftype)
+	-- 		-- 		return { "indent" }
+	-- 		-- 	end,
+	-- 		-- })
+	-- 	end,
+	-- },
+	{
+		"nvim-telescope/telescope.nvim",
+		opts = {
+			-- pickers = {
+			-- 	find_files = {
+			-- 		theme = "dropdown",
+			-- 	},
+			-- },
+			defaults = {
+				layout_strategy = "horizontal",
+				layout_config = {
+					height = 0.95,
+					prompt_position = "top",
+					-- horizontal = {
+					--   prompt_position = "bottom",
+					-- }
+					-- vertical = {
+					-- 	mirror = false,
+					-- 	preview_cutoff = 0,
+					-- },
+				},
+			},
+		},
+	},
 
 	-- override plugin configs
 	{
@@ -23,7 +76,6 @@ local plugins = {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
-		---@type snacks.Config
 		opts = {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
@@ -32,9 +84,18 @@ local plugins = {
 			dashboard = { example = "advanced" },
 			explorer = { enabled = true },
 			indent = {
-				enabled = true,
+				priority = 1,
+				enabled = false, -- enable indent guides
+				char = "│",
+				only_scope = false, -- only show indent guides of the scope
+				only_current = false, -- only show indent guides in the current window
+				hl = {
+					"SnacksIndent1",
+					"SnacksIndent2",
+					"SnacksIndent3",
+				},
 				animate = {
-					enabled = true,
+					enabled = false,
 					style = "out",
 					easing = "linear",
 					duration = {
@@ -52,6 +113,29 @@ local plugins = {
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
 			zen = { enabled = true },
+		},
+		keys = {
+			{
+				"<C-n>",
+				function()
+					require("snacks").explorer()
+				end,
+				desc = "File Explorer",
+			},
+			{
+				"<leader>z",
+				function()
+					require("snacks").zen()
+				end,
+				desc = "Toggle Zen Mode",
+			},
+			{
+				"<leader>gg",
+				function()
+					require("snacks").lazygit()
+				end,
+				desc = "Lazygit",
+			},
 		},
 	},
 
@@ -270,6 +354,14 @@ local plugins = {
 			},
 		},
 	},
+	{
+		"NvChad/nvim-colorizer.lua",
+		enabled = true,
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		enabled = false,
+	},
 	-- {
 	--   "Exafunction/codeium.nvim",
 	--   dependencies = {
@@ -290,9 +382,8 @@ local plugins = {
 -- To make a plugin not be loaded
 -- {
 --   "NvChad/nvim-colorizer.lua",
---   enabled = false
+--   enabled = true
 -- },
-
 -- All NvChad plugins are lazy-loaded by default
 -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
 -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example

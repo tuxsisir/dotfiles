@@ -10,13 +10,13 @@ vim.g.mapleader = ";"
 -- vim.cmd 'set relativenumber'
 --
 -- vscode format i.e json files
-vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/my-snippets"
+vim.g.vscode_snippets_path = vim.fn.stdpath("config") .. "/lua/custom/my-snippets"
 
 -- trim whitespaces on save
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
-  command = [[%s/\s\+$//e]],
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   pattern = { "*" },
+--   command = [[%s/\s\+$//e]],
+-- })
 
 -- call linter on leaving insert
 -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -26,11 +26,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 -- })
 
 -- Automatically refresh buffer after saving the file
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*" },
-  command = "silent! e"
-})
-
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   pattern = { "*" },
+--   command = "silent! e"
+-- })
 
 -- local set = vim.opt
 -- local global = vim.g
@@ -48,8 +47,19 @@ vim.g.codeium_no_map_tab = 1
 -- opt.foldmethod = "expr"
 -- opt.foldexpr = "nvim_treesitter#foldexpr()"
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "indent"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldtext = ""
-vim.opt.foldlevelstart = 1
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 2
 vim.opt.foldenable = false  -- Disable folding by default
+--
+--
+--
+--
+-- disable auto fold on TelescopeResults
+-- Disable folding in Telescope's result window.
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "TelescopeResults",
+	command = [[setlocal nofoldenable]],
+})

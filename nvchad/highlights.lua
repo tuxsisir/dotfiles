@@ -5,16 +5,17 @@
 local M = {}
 
 ---@type Base46HLGroupsList
--- M.override = {
---   Comment = {
---     italic = true,
---   },
--- }
+M.override = {
+	Comment = {
+		italic = true,
+	},
+	-- ["@comment"] = { italic = true }
+}
 
 ---@type HLTable
 M.add = {
-  -- NvimTreeOpenedFolderName = { fg = "green", bold = true },
-  -- SnacksIndent1 = { fg = "grey", bg = "grey" },
+	-- NvimTreeOpenedFolderName = { fg = "green", bold = true },
+	-- SnacksIndent1 = { fg = "#3f4354" },
 }
 
 return M

@@ -4,7 +4,7 @@ local options = {
 
 	formatters_by_ft = {
 		lua = { "stylua" },
-		vue = { "eslint" },
+		vue = { "eslint_d" },
 		javascript = { "prettier" },
 		css = { "prettier" },
 		html = { "prettier" },

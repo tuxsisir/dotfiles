@@ -1,65 +1,44 @@
--- local autocmd = vim.api.nvim_create_autocmd
-
--- Auto resize panes when resizing nvim window
--- autocmd("VimResized", {
---   pattern = "*",
---   command = "tabdo wincmd =",
--- })
---
 vim.g.mapleader = ";"
--- vim.cmd 'set relativenumber'
---
--- vscode format i.e json files
-vim.g.vscode_snippets_path = vim.fn.stdpath("config") .. "/lua/custom/my-snippets"
 
--- trim whitespaces on save
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---   pattern = { "*" },
---   command = [[%s/\s\+$//e]],
--- })
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 
--- call linter on leaving insert
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---   callback = function()
---     require("lint").try_lint()
---   end,
--- })
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
--- Automatically refresh buffer after saving the file
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---   pattern = { "*" },
---   command = "silent! e"
--- })
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
 
--- local set = vim.opt
--- local global = vim.g
--- set.foldmethod = 'indent'
---
+vim.opt.rtp:prepend(lazypath)
 
-vim.g.codeium_disable_bindings = 1
-vim.g.codeium_no_map_tab = 1
--- vim.g.codeium_manual = 1
---
--- code folding
--- local vim = vim
--- local opt = vim.opt
---
--- opt.foldmethod = "expr"
--- opt.foldexpr = "nvim_treesitter#foldexpr()"
+local lazy_config = require "configs.lazy"
 
-vim.opt.foldmethod = "indent"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldtext = ""
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 2
-vim.opt.foldenable = false  -- Disable folding by default
---
---
---
---
--- disable auto fold on TelescopeResults
--- Disable folding in Telescope's result window.
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "TelescopeResults",
-	command = [[setlocal nofoldenable]],
-})
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
+
+  { import = "plugins" },
+  { import = "custom.plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "options"
+require "autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
+
+-- Load your custom mappings even LATER
+vim.schedule(function()
+  require "custom.mappings"
+end)

@@ -4,33 +4,34 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require("custom.highlights")
 
-M.ui = {
-	theme = "palenight",
-	theme_toggle = { "palenight", "everforest" },
-
-	hl_override = highlights.override,
-	hl_add = highlights.add,
-	transparency = false,
-
-	-- cmp
-	cmp = {
-		icons = true,
-		lspkind_text = true,
-		style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
-	},
-	-- nvdash (dashboard)
-	nvdash = {
-		load_on_startup = false,
-	},
-	statusline = {
-		theme = "vscode_colored",
-		separator_style = "block",
-	},
+-- NEW: nvdash is now a TOP-LEVEL key
+M.nvdash = {
+  load_on_startup = false,
+  -- You can add buttons/header here if you want
 }
 
-M.plugins = "custom.plugins"
+M.base46 = {
+  theme = "palenight",
+  theme_toggle = { "palenight", "everforest" },
+  transparency = true,
+  hl_override = highlights.override,
+  hl_add = highlights.add,
+}
 
--- check core.mappings for table structure
-M.mappings = require("custom.mappings")
+-- M.ui is now strictly for the core UI looks
+M.ui = {
+
+  -- cmp settings (nested under ui is still fine for these)
+  cmp = {
+    icons = true,
+    lspkind_text = true,
+    style = "atom", 
+  },
+
+  statusline = {
+    theme = "vscode_colored",
+    separator_style = "block",
+  },
+}
 
 return M

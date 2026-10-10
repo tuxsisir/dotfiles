@@ -10,7 +10,7 @@ set -euo pipefail
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP_SUFFIX="bak-$(date +%Y%m%d-%H%M%S)"
 
-steps=(brew link shell fish tmux nvim)
+steps=(brew link shell fish rust tmux nvim)
 
 info() { printf '\n\033[1;35m==> %s\033[0m\n' "$*"; }
 warn() { printf '\033[1;33m  ! %s\033[0m\n' "$*"; }
@@ -91,6 +91,19 @@ step_fish() {
   fi
 }
 
+step_rust() {
+  info "Rust (rustup, latest stable)"
+  local rustup=~/.cargo/bin/rustup
+  if [ ! -x "$rustup" ]; then
+    # --no-modify-path: config.fish already puts ~/.cargo/bin on PATH
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+  else
+    "$rustup" self update
+  fi
+  "$rustup" update stable # includes rustfmt and clippy
+  "$rustup" default stable
+}
+
 step_tmux() {
   info "tmux plugins (tpm)"
   local tpm=~/.tmux/plugins/tpm
@@ -107,6 +120,10 @@ step_tmux() {
 step_nvim() {
   info "neovim: plugins, treesitter parsers, Mason LSPs/formatters"
   local log="${TMPDIR:-/tmp}/nvim-bootstrap.log"
+  if ! fish -c 'nvm use --silent lts; and type -q npm' 2>/dev/null; then
+    warn "node not found: run './install.sh fish' first (Mason needs npm)"
+    return 1
+  fi
   # run through fish so nvm's node is on PATH for Mason's npm installs
   fish -c "nvm use --silent lts; nvim --headless -c 'luafile $DOTFILES/scripts/nvim_bootstrap.lua'" 2>&1 >"$log" ||
     warn "nvim bootstrap failed, see $log"

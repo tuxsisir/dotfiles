@@ -7,7 +7,7 @@ local function log(msg)
 end
 
 local function step(name, fn)
-  log("==> " .. name)
+  log("\n==> " .. name)
   local ok, err = pcall(fn)
   if not ok then
     log("  ! " .. tostring(err))

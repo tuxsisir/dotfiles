@@ -51,6 +51,7 @@ return {
         "bash",
         "fish",
         "python",
+        "rust",
         "html",
         "htmldjango",
         "css",

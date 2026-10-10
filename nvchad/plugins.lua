@@ -55,13 +55,6 @@ local plugins = {
 		},
 		keys = {
 			{
-				"<C-n>",
-				function()
-					require("snacks").explorer()
-				end,
-				desc = "Explorer",
-			},
-			{
 				"<leader>gg",
 				function()
 					require("snacks").lazygit()
@@ -90,11 +83,11 @@ local plugins = {
 	{
 		"mfussenegger/nvim-lint",
 		event = { "BufReadPre", "BufNewFile" },
-    lazy = false,
+		lazy = false,
 		config = function()
 			local lint = require("lint")
 			lint.linters_by_ft = {
-        lua = { "luacheck" },
+				lua = { "luacheck" },
 				javascript = { "eslint" },
 				typescript = { "eslint" },
 				python = { "ruff" },
@@ -217,6 +210,135 @@ local plugins = {
 		cmd = { "MarkdownPreviewToggle" },
 		ft = { "markdown" },
 		build = "cd app && yarn install",
+	},
+	-- for code folding
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = "kevinhwang91/promise-async",
+		event = "BufReadPost",
+		config = function()
+			-- Necessary Neovim settings for ufo
+			vim.o.foldcolumn = "0" -- Keep the UI clean (no sidebar)
+			vim.o.foldlevel = 99
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
+
+			require("ufo").setup({
+				provider_selector = function()
+					-- Tell ufo to use Treesitter for logic, indent as fallback
+					return { "treesitter", "indent" }
+				end,
+			})
+		end,
+	},
+	-- For code redability, clipping on scrolls
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		lazy = false,
+		opts = {
+			enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+			max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+			min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+			line_numbers = true,
+			multiline_threshold = 20, -- Maximum number of lines to show for a single context
+			trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+			mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
+		},
+	},
+	{
+		"folke/sidekick.nvim",
+		opts = {
+			-- add any options here
+			cli = {
+				mux = {
+					backend = "tmux",
+					enabled = true,
+				},
+			},
+		},
+		keys = {
+			-- {
+			-- 	"<tab>",
+			-- 	function()
+			-- 		-- if there is a next edit, jump to it, otherwise apply it if any
+			-- 		if not require("sidekick").nes_jump_or_apply() then
+			-- 			return "<Tab>" -- fallback to normal tab
+			-- 		end
+			-- 	end,
+			-- 	expr = true,
+			-- 	desc = "Goto/Apply Next Edit Suggestion",
+			-- },
+			{
+				"<c-.>",
+				function()
+					require("sidekick.cli").focus()
+				end,
+				desc = "Sidekick Focus",
+				mode = { "n", "t", "i", "x" },
+			},
+			{
+				"<leader>aa",
+				function()
+					require("sidekick.cli").toggle()
+				end,
+				desc = "Sidekick Toggle CLI",
+			},
+			{
+				"<leader>as",
+				function()
+					require("sidekick.cli").select()
+				end,
+				-- Or to select only installed tools:
+				-- require("sidekick.cli").select({ filter = { installed = true } })
+				desc = "Select CLI",
+			},
+			{
+				"<leader>ad",
+				function()
+					require("sidekick.cli").close()
+				end,
+				desc = "Detach a CLI Session",
+			},
+			{
+				"<leader>at",
+				function()
+					require("sidekick.cli").send({ msg = "{this}" })
+				end,
+				mode = { "x", "n" },
+				desc = "Send This",
+			},
+			{
+				"<leader>af",
+				function()
+					require("sidekick.cli").send({ msg = "{file}" })
+				end,
+				desc = "Send File",
+			},
+			{
+				"<leader>av",
+				function()
+					require("sidekick.cli").send({ msg = "{selection}" })
+				end,
+				mode = { "x" },
+				desc = "Send Visual Selection",
+			},
+			{
+				"<leader>ap",
+				function()
+					require("sidekick.cli").prompt()
+				end,
+				mode = { "n", "x" },
+				desc = "Sidekick Select Prompt",
+			},
+			-- Example of a keybinding to open Claude directly
+			{
+				"<leader>ac",
+				function()
+					require("sidekick.cli").toggle({ name = "claude", focus = true })
+				end,
+				desc = "Sidekick Toggle Claude",
+			},
+		},
 	},
 }
 

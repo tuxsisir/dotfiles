@@ -1,7 +1,7 @@
 local M = {}
 
 M.treesitter = {
-  sync_install = true,
+  sync_install = false,
 	ensure_installed = {
 		"vim",
 		"lua",
@@ -17,6 +17,10 @@ M.treesitter = {
 		"htmldjango",
 		"scss",
 	},
+  highlight = {
+    enable = true,
+    use_languagetree = true,
+  },
 	indent = {
 		enable = true,
 		-- disable = {

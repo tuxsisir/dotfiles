@@ -8,6 +8,7 @@ local map = vim.keymap.set
 -- 1. Unmap the NvChad defaults
 pcall(vim.keymap.del, "n", "<C-s>")
 pcall(vim.keymap.del, "n", "<leader>h")
+pcall(vim.keymap.del, "n", "<C-n>")
 
 -- File & Buffer Management
 map("n", "<leader>s", ":w<CR>", { desc = "Save buffer" })
@@ -60,6 +61,10 @@ map("n", "[c", function()
   vim.schedule(function() require("gitsigns").prev_hunk() end)
   return "<Ignore>"
 end, { expr = true, desc = "Git | Prev Hunk" })
+
+map("n", "<C-n>", function()
+  require("snacks").explorer()
+end, { desc = "Snacks Explorer" })
 
 -- =============================================================================
 -- INSERT MODE (i)

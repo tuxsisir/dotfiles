@@ -3,7 +3,7 @@
 
 -- 1. Simple Servers
 -- Note: 'ts_ls' is the new name for tsserver
-local servers = { "html", "cssls", "tailwindcss", "eslint" }
+local servers = { "html", "cssls", "eslint", "pyright" }
 vim.lsp.enable(servers)
 
 -- 2. VUE_LS Configuration (Formerly Volar)

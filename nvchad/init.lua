@@ -12,6 +12,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+vim.opt.shell = "/opt/homebrew/bin/fish"
+
 local lazy_config = require "configs.lazy"
 
 -- load plugins
@@ -42,3 +44,14 @@ end)
 vim.schedule(function()
   require "custom.mappings"
 end)
+
+
+-- highlight trailing whitespace
+-- vim.cmd([[highlight ExtraWhitespace ctermbg=red guibg=red]])
+-- vim.cmd([[match ExtraWhitespace /\s\+$/]])
+--
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   pattern = { "*" },
+--   command = [[%s/\s\+$//e]],
+-- })
+

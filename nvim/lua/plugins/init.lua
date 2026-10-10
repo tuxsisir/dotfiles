@@ -89,14 +89,14 @@ return {
       {
         "<leader>gg",
         function()
-          Snacks.lazygit()
+          require("snacks").lazygit()
         end,
         desc = "Lazygit",
       },
       {
         "<leader>z",
         function()
-          Snacks.zen()
+          require("snacks").zen()
         end,
         desc = "Zen Mode",
       },

@@ -7,11 +7,11 @@ function push
             git commit -m "Update wiki"
             git push origin master
         case dots
-            cd ~/mydots/
+            cd ~/dotfiles/
             git status
             git add .
             git commit -m "Update dots"
-            git push origin master
+            git push origin main
         case tux
             cd ~/projects/tuxnuxt
             git status

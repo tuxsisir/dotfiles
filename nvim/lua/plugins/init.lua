@@ -17,6 +17,10 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      -- compiled fzf sorter: faster, better ranking than the default lua one
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
     opts = {
       defaults = {
         layout_strategy = "horizontal",
@@ -26,6 +30,11 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      local telescope = require "telescope"
+      telescope.setup(opts)
+      telescope.load_extension "fzf"
+    end,
   },
 
   {

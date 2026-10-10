@@ -5,29 +5,52 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Tmux_logo.svg/2560px-Tmux_logo.svg.png" alt="tmux" width="40%">
 </h1>
 
-### Find the configurations for following:
+My macOS setup: [Neovim](https://neovim.io/) on [NvChad](https://nvchad.com/),
+[tmux](https://github.com/tmux/tmux), [fish](https://fishshell.com/),
+[starship](https://starship.rs/) and [Ghostty](https://ghostty.org/).
 
-- [Alacritty](https://github.com/alacritty/alacritty) *A fast, cross-platform, OpenGL terminal emulator*
-- [Neovim](https://neovim.io/) *hyperextensible Vim-based text editor*
-- [tmux](https://github.com/tmux/tmux) *terminal multiplexer*
-- [fish](https://github.com/fish-shell/fish-shell) *the friendly interactive shell* 
-- [starship](https://starship.rs/) *Rust-Powered cross-shell prompt*
+## New Mac
+
+```sh
+git clone https://github.com/tuxsisir/dotfiles ~/dotfiles
+cd ~/dotfiles && ./install.sh
+```
+
+`install.sh` is safe to re-run, and nothing is pinned: each run installs what's
+missing and updates everything else to latest. Run single steps with
+`./install.sh <step> ...`:
+
+| step    | does                                                                  |
+| ------- | --------------------------------------------------------------------- |
+| `brew`  | Homebrew + everything in `Brewfile`                                    |
+| `link`  | symlinks configs into `~` (existing files are moved to `*.bak-<date>`) |
+| `shell` | makes fish the login shell                                             |
+| `fish`  | fisher plugins (`fish/fish_plugins`), latest node LTS, latest python   |
+| `tmux`  | tpm + tmux plugins                                                     |
+| `nvim`  | lazy.nvim plugins, treesitter parsers, Mason LSPs/formatters           |
+
+## Layout
+
+| repo                | linked to                  |
+| ------------------- | -------------------------- |
+| `nvim/`             | `~/.config/nvim`           |
+| `tmux/.tmux.conf`   | `~/.tmux.conf`             |
+| `fish/config.fish`  | `~/.config/fish/`          |
+| `fish/fish_plugins` | `~/.config/fish/`          |
+| `fish/functions/*`  | `~/.config/fish/functions/`|
+| `ghostty/config`    | `~/.config/ghostty/config` |
+| `starship.toml`     | `~/.config/starship.toml`  |
+| `.gitconfig`        | `~/.gitconfig` (+ untracked `~/.gitconfig.local` for overrides) |
+| `git/ignore`        | `~/.config/git/ignore`     |
+
+## Neovim tooling
+
+LSP servers and formatters are installed per-user by Mason into
+`~/.local/share/nvim/mason`, so nothing goes in global npm/pip. Mason only needs
+`node`/`npm` (from nvm.fish) and `python3` on PATH to build them. To add a tool,
+reference it in `nvim/lua/configs/lspconfig.lua` or `conform.lua`, then run
+`:MasonInstallAll`.
 
 #### Screenshots
 ![lua-packer-plugins](https://imgur.com/98relTf.png)
 ![git-status](https://imgur.com/I5jtbNG.png)
-
-##### fisher (A plugin manager for fish)
-```console
-$ fisher ls
-jorgebucaran/fisher
-jorgebucaran/nvm.fish
-patrickf1/fzf.fish
-```
-
-### Create Symlinks
-- individual files
-`ln -s -f ~/dotfiles/fish/functions/tswap.fish ~/.config/fish/functions/tswap.fish`
-
-- whole directory (skip the directory at the end)
-`ln -s -f ~/dotfiles/nvim ~/.config/`

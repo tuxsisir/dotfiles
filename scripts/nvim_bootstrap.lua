@@ -3,7 +3,7 @@
 -- Installs/updates (to latest) plugins, treesitter parsers and Mason tools, then quits.
 
 local function log(msg)
-  io.stdout:write(msg .. "\n")
+  io.stderr:write(msg .. "\n")
 end
 
 local function step(name, fn)

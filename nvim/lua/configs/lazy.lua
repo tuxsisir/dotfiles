@@ -2,6 +2,9 @@ return {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
 
+  -- no plugin needs luarocks; skips the lua 5.1 health warnings
+  rocks = { enabled = false },
+
   ui = {
     icons = {
       ft = "",

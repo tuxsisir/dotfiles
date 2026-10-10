@@ -108,7 +108,7 @@ step_nvim() {
   info "neovim: plugins, treesitter parsers, Mason LSPs/formatters"
   local log="${TMPDIR:-/tmp}/nvim-bootstrap.log"
   # run through fish so nvm's node is on PATH for Mason's npm installs
-  fish -c "nvm use --silent lts; nvim --headless -c 'luafile $DOTFILES/scripts/nvim_bootstrap.lua'" 2>"$log" ||
+  fish -c "nvm use --silent lts; nvim --headless -c 'luafile $DOTFILES/scripts/nvim_bootstrap.lua'" 2>&1 >"$log" ||
     warn "nvim bootstrap failed, see $log"
 }
 

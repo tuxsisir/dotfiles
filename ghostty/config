@@ -1,0 +1,22 @@
+theme = dracula
+background-opacity = 0.40
+background-blur = macos-glass-regular
+
+font-family = Maple Mono NF
+font-size = 14
+font-style = Bold
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+adjust-cell-height = 5
+adjust-cell-width = -4%
+
+cursor-style = block
+cursor-style-blink = false
+
+window-padding-x = 40
+window-padding-y = 20
+macos-titlebar-style = transparent
+macos-option-as-alt = true
+
+shell-integration-features = no-cursor

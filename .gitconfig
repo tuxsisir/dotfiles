@@ -4,7 +4,7 @@
 
 [user]
     name = Sisir Ghimire Chettri
-	email = contact@sisir.net
+    email = contact@sisir.net
 
 [github]
     user = tuxsisir
@@ -19,7 +19,10 @@
 
 [pull]
     ff = false
+
 [init]
     defaultBranch = main
-[local]
-	name = Sisir Ghimire Chettri
+
+# machine-specific overrides (e.g. work email), not tracked
+[include]
+    path = ~/.gitconfig.local

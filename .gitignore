@@ -1,9 +1,8 @@
 .DS_Store
+.env
 
 # ignore all on tmuxp
 /.tmuxp/*
 
 # except example.yaml
 !/.tmuxp/example.yaml
-
-packer_compiled.lua

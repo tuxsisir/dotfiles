@@ -1,6 +1,5 @@
-vim.g.mapleader = ";"
-
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = ";"
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -11,8 +10,6 @@ if not vim.uv.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-
-vim.opt.shell = "/opt/homebrew/bin/fish"
 
 local lazy_config = require "configs.lazy"
 
@@ -26,7 +23,6 @@ require("lazy").setup({
   },
 
   { import = "plugins" },
-  { import = "custom.plugins" },
 }, lazy_config)
 
 -- load theme
@@ -39,19 +35,3 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
-
--- Load your custom mappings even LATER
-vim.schedule(function()
-  require "custom.mappings"
-end)
-
-
--- highlight trailing whitespace
--- vim.cmd([[highlight ExtraWhitespace ctermbg=red guibg=red]])
--- vim.cmd([[match ExtraWhitespace /\s\+$/]])
---
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---   pattern = { "*" },
---   command = [[%s/\s\+$//e]],
--- })
-

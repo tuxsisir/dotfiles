@@ -2,12 +2,10 @@
 local M = {}
 
 -- Path to overriding theme and highlights files
-local highlights = require("custom.highlights")
+local highlights = require "highlights"
 
--- NEW: nvdash is now a TOP-LEVEL key
 M.nvdash = {
   load_on_startup = false,
-  -- You can add buttons/header here if you want
 }
 
 M.base46 = {
@@ -18,14 +16,12 @@ M.base46 = {
   hl_add = highlights.add,
 }
 
--- M.ui is now strictly for the core UI looks
 M.ui = {
 
-  -- cmp settings (nested under ui is still fine for these)
   cmp = {
     icons = true,
     lspkind_text = true,
-    style = "atom", 
+    style = "atom",
   },
 
   statusline = {

@@ -77,7 +77,7 @@ return {
     lazy = false,
     opts = {
       bigfile = { enabled = true },
-      dashboard = { enabled = true, example = "advanced" },
+      dashboard = { enabled = true, example = "doom" },
       explorer = { enabled = true },
       input = { enabled = true },
       picker = { enabled = true },

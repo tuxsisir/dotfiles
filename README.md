@@ -25,7 +25,7 @@ missing and updates everything else to latest. Run single steps with
 | `brew`  | Homebrew + everything in `Brewfile`                                    |
 | `link`  | symlinks configs into `~` (existing files are moved to `*.bak-<date>`) |
 | `shell` | makes fish the login shell                                             |
-| `fish`  | fisher plugins (`fish/fish_plugins`), latest node LTS, latest python   |
+| `fish`  | fisher plugins (`fish/fish_plugins`), latest node LTS, latest python, virtualfish (pipx) |
 | `rust`  | rustup + latest stable toolchain (rustfmt, clippy)                     |
 | `tmux`  | tpm + tmux plugins                                                     |
 | `nvim`  | lazy.nvim plugins, treesitter parsers, Mason LSPs/formatters           |

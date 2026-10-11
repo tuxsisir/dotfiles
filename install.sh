@@ -77,7 +77,7 @@ step_shell() {
 }
 
 step_fish() {
-  info "fish plugins (fisher) + latest node LTS + latest python"
+  info "fish plugins (fisher) + latest node LTS + latest python + virtualfish"
   # fisher update installs everything listed in fish_plugins, at their latest
   fish -c 'type -q fisher; or curl -fsSL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; fisher update'
 
@@ -90,6 +90,13 @@ step_fish() {
     pyenv install --skip-existing "$latest"
     pyenv global "$latest"
   fi
+
+  # virtualfish (`vf`) in its own pipx venv, so it survives python upgrades;
+  # config.fish loads it. Remove the loader an older `vf install` left behind.
+  export PIPX_HOME=~/.local/pipx # same as config.fish
+  pipx install virtualfish >/dev/null 2>&1 || true
+  pipx upgrade virtualfish || pipx reinstall virtualfish
+  rm -f ~/.config/fish/conf.d/virtualfish-loader.fish
 }
 
 step_rust() {

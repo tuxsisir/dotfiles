@@ -26,6 +26,7 @@ missing and updates everything else to latest. Run single steps with
 | `link`  | symlinks configs into `~` (existing files are moved to `*.bak-<date>`) |
 | `shell` | makes fish the login shell                                             |
 | `fish`  | fisher plugins (`fish/fish_plugins`), latest node LTS, latest python   |
+| `rust`  | rustup + latest stable toolchain (rustfmt, clippy)                     |
 | `tmux`  | tpm + tmux plugins                                                     |
 | `nvim`  | lazy.nvim plugins, treesitter parsers, Mason LSPs/formatters           |
 
@@ -42,6 +43,7 @@ missing and updates everything else to latest. Run single steps with
 | `starship.toml`     | `~/.config/starship.toml`  |
 | `.gitconfig`        | `~/.gitconfig` (+ untracked `~/.gitconfig.local` for overrides) |
 | `git/ignore`        | `~/.config/git/ignore`     |
+| `hammerspoon/init.lua` | `~/.hammerspoon/init.lua` |
 
 ## Neovim tooling
 

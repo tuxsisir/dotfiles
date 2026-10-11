@@ -7,6 +7,7 @@ return {
     lua = { "stylua" },
     python = { "ruff_organize_imports", "ruff_format" },
     htmldjango = { "djlint" },
+    rust = { "rustfmt" }, -- ships with the rustup toolchain
 
     vue = { "eslint_d" },
     javascript = prettier,

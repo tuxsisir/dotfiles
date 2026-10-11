@@ -9,6 +9,7 @@ local servers = {
   "pyright", -- types / go-to-definition
   "ruff", -- python lint + code actions (organize imports, fixes)
   "ts_ls",
+  "rust_analyzer",
   "vue_ls", -- v3+: always "hybrid", talks to ts_ls through the vue plugin below
 }
 

@@ -28,7 +28,7 @@ map("n", "<C-s>", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })
 
 -- File explorer (replaces NvChad's NvimTree toggle)
 map("n", "<C-n>", function()
-  Snacks.explorer()
+  require("snacks").explorer()
 end, { desc = "Snacks Explorer" })
 
 -- Tabufline: reorder buffers (replaces NvChad's window left/right)

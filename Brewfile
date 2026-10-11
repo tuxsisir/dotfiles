@@ -32,9 +32,9 @@ brew "tree"
 brew "wget"
 brew "tmuxp"
 brew "coreutils"
+brew "awscli"           # aws cli v2, native arm64 bottle
 
 # --- from the old Mac; uncomment what you still use ---------------------------
-# brew "awscli"
 # brew "deno"
 # brew "ruby"
 # brew "postgresql@16"

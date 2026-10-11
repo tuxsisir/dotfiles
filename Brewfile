@@ -19,6 +19,8 @@ brew "fzf"              # fzf.fish
 brew "lazygit"          # <leader>gg
 brew "tree-sitter-cli"  # nvim-treesitter (main) compiles parsers with it
 brew "pyenv"            # python versions (mason's python tools need a python3)
+brew "openssl@3"        # pyenv: python links this instead of compiling its own
+brew "readline"         # pyenv: python repl line editing
 brew "xz"               # pyenv builds python with lzma support
 
 # --- fonts --------------------------------------------------------------------

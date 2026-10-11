@@ -53,6 +53,7 @@ step_link() {
   link starship.toml ~/.config/starship.toml
   link .gitconfig ~/.gitconfig
   link git/ignore ~/.config/git/ignore
+  link hammerspoon/init.lua ~/.hammerspoon/init.lua
 
   link fish/config.fish ~/.config/fish/config.fish
   link fish/fish_plugins ~/.config/fish/fish_plugins

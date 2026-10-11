@@ -8,6 +8,9 @@ brew "starship"
 brew "git"
 cask "ghostty"
 cask "amethyst"         # tiling window manager
+cask "hammerspoon"      # app hotkeys (hammerspoon/init.lua)
+cask "betterdisplay"
+cask "bettercmdtab"
 
 # --- needed by the nvim config ------------------------------------------------
 brew "ripgrep"          # telescope / snacks live grep
@@ -45,7 +48,5 @@ brew "coreutils"
 # brew "ffmpeg"
 # brew "tesseract"
 # cask "alt-tab"
-# cask "betterdisplay"
 # cask "bitwarden"
 # cask "dbeaver-community"
-# cask "hammerspoon"

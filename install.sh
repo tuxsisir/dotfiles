@@ -77,26 +77,18 @@ step_shell() {
 }
 
 step_fish() {
-  info "fish plugins (fisher) + latest node LTS + latest python + virtualfish"
+  info "fish plugins (fisher) + latest node LTS + latest python (uv)"
   # fisher update installs everything listed in fish_plugins, at their latest
   fish -c 'type -q fisher; or curl -fsSL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; fisher update'
 
   # node for Mason's npm-based tools (pyright, ts_ls, vue_ls, prettier, ...)
   fish -c 'nvm install lts; and set -U nvm_default_version lts'
 
-  if command -v pyenv >/dev/null; then
-    local latest
-    latest="$(pyenv latest -k 3)"
-    pyenv install --skip-existing "$latest"
-    pyenv global "$latest"
+  # latest python as the default python/python3 in ~/.local/bin
+  if command -v uv >/dev/null; then
+    uv python install --default
+    uv python upgrade
   fi
-
-  # virtualfish (`vf`) in its own pipx venv, so it survives python upgrades;
-  # config.fish loads it. Remove the loader an older `vf install` left behind.
-  export PIPX_HOME=~/.local/pipx # same as config.fish
-  pipx install virtualfish >/dev/null 2>&1 || true
-  pipx upgrade virtualfish || pipx reinstall virtualfish
-  rm -f ~/.config/fish/conf.d/virtualfish-loader.fish
 }
 
 step_rust() {

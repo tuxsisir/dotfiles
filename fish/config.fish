@@ -8,9 +8,6 @@ end
 
 # PATH — fish_add_path silently skips directories that don't exist
 set -gx PNPM_HOME ~/Library/pnpm
-# pipx's macOS default (~/Library/Application Support) has a space, which
-# virtualfish can't handle
-set -gx PIPX_HOME ~/.local/pipx
 fish_add_path -g \
     ~/.local/bin \
     ~/.cargo/bin \
@@ -57,20 +54,6 @@ if status is-interactive
     abbr -a nrd npm run dev
     abbr -a py python3
     abbr -a va source .venv/bin/activate.fish
-
-    if type -q pyenv
-        pyenv init - fish | source
-    end
-
-    # virtualfish (`vf`), installed with pipx. Loaded here instead of the
-    # conf.d file `vf install` writes, which hardcodes a python3.X path.
-    set -l vf_fish $PIPX_HOME/venvs/virtualfish/lib/python3*/site-packages/virtualfish/virtual.fish
-    if set -q vf_fish[1]
-        set -g VIRTUALFISH_PYTHON_EXEC $PIPX_HOME/venvs/virtualfish/bin/python
-        set -g VIRTUALFISH_DEFAULT_PYTHON ~/.pyenv/shims/python3 # new envs use pyenv's global python
-        source $vf_fish[1]
-        emit virtualfish_did_setup_plugins
-    end
 
     if type -q starship
         starship init fish | source

@@ -7,6 +7,7 @@ brew "neovim"
 brew "starship"
 brew "git"
 cask "ghostty"
+cask "amethyst"         # tiling window manager
 
 # --- needed by the nvim config ------------------------------------------------
 brew "ripgrep"          # telescope / snacks live grep
@@ -43,7 +44,6 @@ brew "coreutils"
 # brew "zola"
 # brew "ffmpeg"
 # brew "tesseract"
-# cask "aerospace"
 # cask "alt-tab"
 # cask "betterdisplay"
 # cask "bitwarden"

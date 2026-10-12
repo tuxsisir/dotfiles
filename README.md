@@ -45,6 +45,7 @@ missing and updates everything else to latest. Run single steps with
 | `git/ignore`        | `~/.config/git/ignore`     |
 | `git/personal`      | `~/.config/git/personal` (personal `[user]` for `~/dotfiles` and any `tuxsisir/*` remote, wins over `~/.gitconfig.local`) |
 | `hammerspoon/init.lua` | `~/.hammerspoon/init.lua` (+ untracked `~/.hammerspoon/local.lua` for per-Mac Chrome profile dirs) |
+| `amethyst/amethyst.yml` | `~/.config/amethyst/amethyst.yml` (overrides the Preferences window) |
 | `karabiner/`        | `~/.config/karabiner` (whole dir; Karabiner won't reload a symlinked file) |
 
 ## Neovim tooling

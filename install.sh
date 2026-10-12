@@ -55,6 +55,7 @@ step_link() {
   link git/ignore ~/.config/git/ignore
   link git/personal ~/.config/git/personal
   link hammerspoon/init.lua ~/.hammerspoon/init.lua
+  link amethyst/amethyst.yml ~/.config/amethyst/amethyst.yml
   # whole dir: Karabiner watches the directory and won't reload a symlinked file
   link karabiner ~/.config/karabiner
 

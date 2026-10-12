@@ -153,7 +153,7 @@ done
 info "Done"
 cat <<'EOF'
   - Open Ghostty (fonts and config are in place) and start a new shell.
-  - Work email for git: put it in ~/.gitconfig.local, e.g.
-        [user]
-            email = you@work.com
+  - Work Mac only: set the work email in the untracked ~/.gitconfig.local
+    (never `git config --global`, it writes into the tracked ~/.gitconfig):
+        git config --file ~/.gitconfig.local user.email you@work.com
 EOF

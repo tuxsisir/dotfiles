@@ -7,7 +7,7 @@ brew "neovim"
 brew "starship"
 brew "git"
 cask "ghostty"
-cask "amethyst"         # tiling window manager
+cask "amethyst"         # tiling window manager (amethyst/amethyst.yml)
 cask "hammerspoon"      # app hotkeys (hammerspoon/init.lua)
 cask "karabiner-elements" # key remaps (karabiner/karabiner.json)
 cask "betterdisplay"

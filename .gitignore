@@ -6,3 +6,6 @@
 
 # except example.yaml
 !/.tmuxp/example.yaml
+
+# karabiner writes timestamped backups next to its config
+/karabiner/automatic_backups/

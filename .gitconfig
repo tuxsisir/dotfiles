@@ -31,3 +31,5 @@
 # include above so it wins over ~/.gitconfig.local
 [includeIf "gitdir:~/dotfiles/"]
     path = ~/.config/git/personal
+[includeIf "gitdir:~/personal/"]
+    path = ~/.config/git/personal

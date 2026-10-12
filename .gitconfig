@@ -28,6 +28,11 @@
     path = ~/.gitconfig.local
 
 # personal repos keep the personal identity even on the work Mac; after the
-# include above so it wins over ~/.gitconfig.local
+# include above so it wins over ~/.gitconfig.local. Matched by remote (any
+# tuxsisir repo, wherever it's cloned) and by path for ~/dotfiles.
+[includeIf "hasconfig:remote.*.url:git@github.com:tuxsisir/**"]
+    path = ~/.config/git/personal
+[includeIf "hasconfig:remote.*.url:https://github.com/tuxsisir/**"]
+    path = ~/.config/git/personal
 [includeIf "gitdir:~/dotfiles/"]
     path = ~/.config/git/personal

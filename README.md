@@ -45,6 +45,7 @@ missing and updates everything else to latest. Run single steps with
 | `git/ignore`        | `~/.config/git/ignore`     |
 | `git/personal`      | `~/.config/git/personal` (personal `[user]` for `~/dotfiles`, wins over `~/.gitconfig.local`) |
 | `hammerspoon/init.lua` | `~/.hammerspoon/init.lua` |
+| `karabiner/`        | `~/.config/karabiner` (whole dir; Karabiner won't reload a symlinked file) |
 
 ## Neovim tooling
 

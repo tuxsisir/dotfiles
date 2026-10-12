@@ -9,6 +9,7 @@ brew "git"
 cask "ghostty"
 cask "amethyst"         # tiling window manager
 cask "hammerspoon"      # app hotkeys (hammerspoon/init.lua)
+cask "karabiner-elements" # key remaps (karabiner/karabiner.json)
 cask "betterdisplay"
 cask "bettercmdtab"
 

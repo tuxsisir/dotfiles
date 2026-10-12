@@ -36,3 +36,5 @@
     path = ~/.config/git/personal
 [includeIf "gitdir:~/dotfiles/"]
     path = ~/.config/git/personal
+[includeIf "gitdir:~/personal/"]
+    path = ~/.config/git/personal

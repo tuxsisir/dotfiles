@@ -2,6 +2,27 @@
 -- Launch apps with Alt shortcuts
 --
 
+-- lets the `hs` CLI talk to Hammerspoon (debugging from a terminal)
+require("hs.ipc")
+
+-- Chrome profile directories depend on which account was signed in first, so
+-- they differ per Mac. Override them in the untracked ~/.hammerspoon/local.lua:
+--   return { chrome = { personal = { dir = "Profile 2" }, work = { dir = "Default" } } }
+-- (check a profile's directory under "Profile Path" in chrome://version)
+local chromeProfiles = {
+	personal = { dir = "Default", title = "Sisir (Personal)" },
+	work = { dir = "Profile 2", title = "Sisir (Work)" },
+}
+
+local ok, localConfig = pcall(dofile, hs.configdir .. "/local.lua")
+if ok and type(localConfig) == "table" and localConfig.chrome then
+	for key, override in pairs(localConfig.chrome) do
+		for field, value in pairs(override) do
+			chromeProfiles[key][field] = value
+		end
+	end
+end
+
 local function focusOrOpenChromeProfile(profileName, windowTitlePart)
 	local chrome = hs.application.get("Google Chrome")
 	local targetWindow = nil
@@ -63,11 +84,11 @@ end)
 
 -- PERSONAL PROFILE
 hs.hotkey.bind({ "alt" }, "W", function()
-	focusOrOpenChromeProfile("Default", "Sisir (Personal)")
+	focusOrOpenChromeProfile(chromeProfiles.personal.dir, chromeProfiles.personal.title)
 end)
 
 hs.hotkey.bind({ "alt" }, "E", function()
-	focusOrOpenChromeProfile("Profile 2", "Sisir (Work)")
+	focusOrOpenChromeProfile(chromeProfiles.work.dir, chromeProfiles.work.title)
 end)
 
 

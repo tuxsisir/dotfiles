@@ -12,6 +12,9 @@ cask "hammerspoon"      # app hotkeys (hammerspoon/init.lua)
 cask "karabiner-elements" # key remaps (karabiner/karabiner.json)
 cask "betterdisplay"
 cask "bettercmdtab"
+cask "google-chrome"    # profiles opened by hammerspoon (alt+w / alt+e)
+cask "pearcleaner"      # app uninstaller that also removes leftover files
+cask "maccy"            # menu bar clipboard history (cmd+shift+c)
 
 # --- needed by the nvim config ------------------------------------------------
 brew "ripgrep"          # telescope / snacks live grep

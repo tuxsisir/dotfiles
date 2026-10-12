@@ -26,3 +26,8 @@
 # machine-specific overrides (e.g. work email), not tracked
 [include]
     path = ~/.gitconfig.local
+
+# personal repos keep the personal identity even on the work Mac; after the
+# include above so it wins over ~/.gitconfig.local
+[includeIf "gitdir:~/dotfiles/"]
+    path = ~/.config/git/personal

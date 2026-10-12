@@ -1,0 +1,5 @@
+# personal identity, included by .gitconfig for personal repos so the work
+# email in ~/.gitconfig.local doesn't leak into them
+[user]
+    name = Sisir Ghimire Chettri
+    email = contact@sisir.net

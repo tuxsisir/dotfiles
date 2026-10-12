@@ -43,6 +43,7 @@ missing and updates everything else to latest. Run single steps with
 | `starship.toml`     | `~/.config/starship.toml`  |
 | `.gitconfig`        | `~/.gitconfig` (+ untracked `~/.gitconfig.local` for overrides) |
 | `git/ignore`        | `~/.config/git/ignore`     |
+| `git/personal`      | `~/.config/git/personal` (personal `[user]` for `~/dotfiles`, wins over `~/.gitconfig.local`) |
 | `hammerspoon/init.lua` | `~/.hammerspoon/init.lua` |
 
 ## Neovim tooling

@@ -1,10 +1,10 @@
 [core]
-    editor = nvim
+	editor = nvim
     #pager = delta
 
 [user]
-    name = Sisir Ghimire Chettri
-    email = contact@sisir.net
+	name = Sisir Ghimire Chettri
+	email = schettri@cropvue.com
 
 [github]
     user = tuxsisir
@@ -21,7 +21,7 @@
     ff = false
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
 
 # machine-specific overrides (e.g. work email), not tracked
 [include]

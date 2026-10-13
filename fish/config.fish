@@ -24,8 +24,8 @@ end
 if status is-interactive
     # abbreviations expand on the command line as you type, so they never shadow
     # real programs for scripts. git names follow the oh-my-zsh git plugin.
-    abbr -a g git
-    abbr -a gss git status
+    # abbr -a g git
+    abbr -a g git status
     abbr -a ga git add
     abbr -a gaa git add --all
     abbr -a gap git add --patch

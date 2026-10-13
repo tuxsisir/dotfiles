@@ -11,7 +11,7 @@ M.nvdash = {
 M.base46 = {
   theme = "palenight",
   theme_toggle = { "palenight", "everforest" },
-  transparency = false,
+  transparency = true,
   hl_override = highlights.override,
   hl_add = highlights.add,
 }

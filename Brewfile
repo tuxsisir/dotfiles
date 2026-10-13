@@ -12,7 +12,7 @@ cask "hammerspoon"      # app hotkeys (hammerspoon/init.lua)
 cask "karabiner-elements" # key remaps (karabiner/karabiner.json)
 cask "betterdisplay"
 cask "bettercmdtab"
-cask "google-chrome"    # profiles opened by hammerspoon (alt+w / alt+e)
+# cask "google-chrome"    # profiles opened by hammerspoon (alt+w / alt+e)
 cask "pearcleaner"      # app uninstaller that also removes leftover files
 cask "maccy"            # menu bar clipboard history (cmd+shift+c)
 
@@ -26,7 +26,7 @@ brew "uv"               # python versions, venvs, packages, CLI tools (mason's p
 
 # --- fonts --------------------------------------------------------------------
 cask "font-maple-mono-nf"
-cask "font-fira-code-nerd-font"
+# cask "font-fira-code-nerd-font"
 cask "font-symbols-only-nerd-font"
 
 # --- cli niceties -------------------------------------------------------------
